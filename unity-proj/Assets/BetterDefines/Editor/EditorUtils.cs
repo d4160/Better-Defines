@@ -6,8 +6,16 @@ using UnityEngine;
 
 namespace BetterDefines.Editor
 {
+    [InitializeOnLoad]
     public static class EditorUtils
     {
+        public static Texture2D StandaloneIcon;
+
+        static EditorUtils()
+        {
+            StandaloneIcon = EditorGUIUtility.IconContent("BuildSettings.Standalone.Small").image as Texture2D;
+        }
+
         // TODO Remove
         [MenuItem("Better Defines/Create Settings")]
         public static void CreateSettings()
