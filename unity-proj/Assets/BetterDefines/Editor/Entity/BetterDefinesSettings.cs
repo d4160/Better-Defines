@@ -9,11 +9,12 @@ namespace BetterDefines.Editor.Entity
 
         private static BetterDefinesSettings _instance;
 
+        public List<CustomDefine> Defines;
+
+
         public static BetterDefinesSettings Instance
         {
             get { return _instance ?? (_instance = Resources.Load<BetterDefinesSettings>(SETTINGS_RESOURCE_NAME)); }
         }
-
-        public List<CustomDefine> Defines;
     }
 }
