@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Name: BetterDefinesSettings
   m_EditorClassIdentifier: 
   Defines:
-  - Define: 
+  - Define: DEFINE_XXX
     Platform: 14
-  - Define: 
+  - Define: DEFINE_XXX
     Platform: 14
-  - Define: 
+  - Define: DEFINE_XXX
     Platform: 14
-  - Define: 
+  - Define: DEFINE_XXX
     Platform: 14
-  - Define: 
+  - Define: DEFINE_XXX
     Platform: 14
-  - Define: 
+  - Define: DEFINE_XXX
     Platform: 14
   - Define: 
     Platform: 14

@@ -7,8 +7,8 @@ namespace BetterDefines.Editor
 {
     public class BetterDefinesWindow : EditorWindow
     {
-        private SerializedObject settingsSerializedObject;
         private ReorderableList list;
+        private SerializedObject settingsSerializedObject;
 
         [MenuItem("Window/Better Defines")]
         private static void Init()
@@ -21,10 +21,23 @@ namespace BetterDefines.Editor
         private void LoadSettings()
         {
             settingsSerializedObject = new SerializedObject(BetterDefinesSettings.Instance);
-            list = new ReorderableList(settingsSerializedObject, settingsSerializedObject.FindProperty("Defines"), true, true, true, true);
+            InitializeList();
         }
 
-        void OnGUI()
+        private void InitializeList()
+        {
+            list = new ReorderableList(settingsSerializedObject, settingsSerializedObject.FindProperty("Defines"), true,
+                true, true, true);
+            list.drawElementCallback += (rect, index, active, focused) =>
+            {
+                rect.y += 2;
+                var element = list.serializedProperty.GetArrayElementAtIndex(index);
+                EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width * 0.35f, EditorGUIUtility.singleLineHeight),
+                    element.FindPropertyRelative("Define"), GUIContent.none);
+            };
+        }
+
+        private void OnGUI()
         {
             if (settingsSerializedObject == null)
             {

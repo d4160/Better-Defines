@@ -13,7 +13,7 @@ namespace BetterDefines.Editor
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return 20f;
+            return 50f;
         }
     }
 }
