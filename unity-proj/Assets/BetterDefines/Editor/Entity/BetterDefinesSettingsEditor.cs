@@ -1,12 +1,14 @@
-﻿using BetterDefines.Editor.Entity;
-using UnityEditor;
+﻿using UnityEditor;
 
-[CustomEditor(typeof(BetterDefinesSettings))]
-public class BetterDefinesSettingsEditor : Editor
+namespace BetterDefines.Editor.Entity
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(BetterDefinesSettings))]
+    public class BetterDefinesSettingsEditor : UnityEditor.Editor
     {
-        EditorGUILayout.LabelField("Label");
-        base.OnInspectorGUI();
+        public override void OnInspectorGUI()
+        {
+            EditorGUILayout.LabelField("Label");
+            base.OnInspectorGUI();
+        }
     }
-}
+}   
