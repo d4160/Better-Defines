@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using BetterDefines.Editor.Entity;
 using UnityEditor;
@@ -11,8 +13,19 @@ namespace BetterDefines.Editor
     {
         public static Texture2D StandaloneIcon;
 
+        public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
+        {
+            get { return _allBuildPlatforms.AsReadOnly(); }
+        }
+
+        private static List<BuildPlatform> _allBuildPlatforms; 
+
         static EditorUtils()
         {
+            _allBuildPlatforms = new List<BuildPlatform>()
+            {
+                new BuildPlatform("Web Player", "Web", true)
+            };
             StandaloneIcon = EditorGUIUtility.IconContent("BuildSettings.Standalone.Small").image as Texture2D;
         }
 
