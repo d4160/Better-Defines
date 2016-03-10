@@ -1,21 +1,24 @@
 ﻿using UnityEditor;
 
-public class BetterDefinesWindow : EditorWindow
+namespace BetterDefines.Editor
 {
-    [MenuItem("Window/Better Defines")]
-    private static void Init()
+    public class BetterDefinesWindow : EditorWindow
     {
-        var window = (BetterDefinesWindow) GetWindow(typeof (BetterDefinesWindow));
-        window.Show();
-    }
-
-    void OnGUI()
-    {
-        for (int i = 0; i < 10; i++)
+        [MenuItem("Window/Better Defines")]
+        private static void Init()
         {
-            EditorGUILayout.BeginHorizontal("box");
-            EditorGUILayout.LabelField("Label");
-            EditorGUILayout.EndHorizontal();
+            var window = (BetterDefinesWindow) GetWindow(typeof (BetterDefinesWindow));
+            window.Show();
+        }
+
+        void OnGUI()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                EditorGUILayout.BeginHorizontal("box");
+                EditorGUILayout.LabelField("Label");
+                EditorGUILayout.EndHorizontal();
+            }
         }
     }
 }

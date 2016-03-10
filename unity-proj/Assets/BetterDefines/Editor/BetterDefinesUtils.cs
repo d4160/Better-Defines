@@ -1,35 +1,38 @@
-﻿using UnityEditor;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEditor;
 
-public static class BetterDefinesUtils
+namespace BetterDefines.Editor
 {
-    private static void ToggleFlag(string targetFlag, bool enable, params BuildTargetGroup[] supportedPlatforms)
+    public static class BetterDefinesUtils
     {
-        foreach (var targetPlatform in supportedPlatforms)
+        private static void ToggleFlag(string targetFlag, bool enable, params BuildTargetGroup[] supportedPlatforms)
         {
-            var scriptDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(targetPlatform);
-            var flags = new List<string>(scriptDefines.Split(';'));
-
-            if (flags.Contains(targetFlag))
+            foreach (var targetPlatform in supportedPlatforms)
             {
-                if (!enable)
+                var scriptDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(targetPlatform);
+                var flags = new List<string>(scriptDefines.Split(';'));
+
+                if (flags.Contains(targetFlag))
                 {
-                    flags.Remove(targetFlag);
+                    if (!enable)
+                    {
+                        flags.Remove(targetFlag);
+                    }
                 }
-            }
-            else
-            {
-                if (enable)
+                else
                 {
-                    flags.Add(targetFlag);
+                    if (enable)
+                    {
+                        flags.Add(targetFlag);
+                    }
                 }
-            }
 
-            var result = string.Join(";", flags.ToArray());
+                var result = string.Join(";", flags.ToArray());
 
-            if (scriptDefines != result)
-            {
-                PlayerSettings.SetScriptingDefineSymbolsForGroup(targetPlatform, result);
+                if (scriptDefines != result)
+                {
+                    PlayerSettings.SetScriptingDefineSymbolsForGroup(targetPlatform, result);
+                }
             }
         }
     }
