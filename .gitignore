@@ -26,3 +26,5 @@ ExportedObj/
 sysinfo.txt
 unity-proj/Library/
 unity-proj/Temp/
+*.sublime-project
+*.sublime-workspace
