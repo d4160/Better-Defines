@@ -8,11 +8,11 @@ namespace BetterDefines.Editor
     {
         public static ReorderableList Create(SerializedObject settingsSerializedObject)
         {
-            var list = new ReorderableList(settingsSerializedObject, settingsSerializedObject.FindProperty("Defines"), true,
-                true, true, true);
-            list.drawHeaderCallback += rect =>
+            var list = new ReorderableList(settingsSerializedObject, settingsSerializedObject.FindProperty("Defines"),
+                true,
+                false, true, true)
             {
-                EditorGUI.LabelField(rect, "Custom Defines");
+                headerHeight = 0f
             };
             list.drawElementCallback += (rect, index, active, focused) =>
             {

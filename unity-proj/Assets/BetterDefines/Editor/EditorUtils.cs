@@ -12,10 +12,16 @@ namespace BetterDefines.Editor
     public static class EditorUtils
     {
         public const string WEB_PLAYER_PLATFORM_ID = "Web";
-        public const string STANDALONE_PLAYER_PLATFORM_ID = "Standalone";
-        public const string IOS_PLAYER_PLATFORM_ID = "iPhone";
-        public const string ANDROID_PLAYER_PLATFORM_ID = "Android";
-        public const string BLACKBERRY_PLAYER_PLATFORM_ID = "BlackBerry";
+        public const string STANDALONE_PLATFORM_ID = "Standalone";
+        public const string IOS_PLATFORM_ID = "iPhone";
+        public const string ANDROID_ID = "Android";
+        public const string BLACKBERRY_PLATFORM_ID = "BlackBerry";
+        public const string TIZEN_PLATFORM_ID = "Tizen";
+        public const string XBOX360_PLATFORM_ID = "XBox360";
+        public const string XBOX_ONE_PLATFORM_ID = "XboxOne";
+        public const string PS3_PLATFORM_ID = "PS3";
+        public const string PS_VITA_PLATFORM_ID = "PSP2";
+        public const string PS4_PLATFORM_ID = "PS4";
 
         public static Texture2D StandaloneIcon;
 

@@ -62,7 +62,8 @@ namespace BetterDefines.Editor
         private void DrawPreferences()
         {
             EditorGUILayout.HelpBox("Please disable platforms that you are not using in your project. " +
-                                    "For disabled platforms toggles will not be displayed in defines tab", MessageType.Info);
+                                    "For disabled platforms toggles will not be displayed in defines tab",
+                MessageType.Info);
             if (GUILayout.Toggle(_drawMainDefines, "Custom Defines"))
             {
             }
