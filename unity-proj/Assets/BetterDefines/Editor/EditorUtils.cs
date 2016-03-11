@@ -11,10 +11,10 @@ namespace BetterDefines.Editor
     [InitializeOnLoad]
     public static class EditorUtils
     {
-        public const string WEB_PLAYER_PLATFORM_ID = "Web";
         public const string STANDALONE_PLATFORM_ID = "Standalone";
+        public const string WEB_PLAYER_PLATFORM_ID = "Web";
         public const string IOS_PLATFORM_ID = "iPhone";
-        public const string ANDROID_ID = "Android";
+        public const string ANDROID_PLATFORM_ID = "Android";
         public const string BLACKBERRY_PLATFORM_ID = "BlackBerry";
         public const string TIZEN_PLATFORM_ID = "Tizen";
         public const string XBOX360_PLATFORM_ID = "XBox360";
@@ -22,6 +22,12 @@ namespace BetterDefines.Editor
         public const string PS3_PLATFORM_ID = "PS3";
         public const string PS_VITA_PLATFORM_ID = "PSP2";
         public const string PS4_PLATFORM_ID = "PS4";
+        public const string GLESEMU_PLATFORM_ID = "StandaloneGLESEmu";
+        public const string WIIU_PLATFORM_ID = "WiiU";
+        public const string WINDOWS_STORE_PLATFORM_ID = "Metro";
+        public const string WEB_GL_PLATFORM_ID = "WebGL";
+        public const string SAMSUNG_TV_PLATFORM_ID = "SamsungTV";
+        public const string NINTENDO_3DS_PLATFORM_ID = "N3DS";
 
         public static Texture2D StandaloneIcon = LoadIcon("Standalone");
 
@@ -36,7 +42,10 @@ namespace BetterDefines.Editor
         {
             _allBuildPlatforms = new List<BuildPlatform>
             {
-                new BuildPlatform("Web Player", WEB_PLAYER_PLATFORM_ID, true, LoadIcon(WEB_PLAYER_PLATFORM_ID))
+                new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadIcon(STANDALONE_PLATFORM_ID)),
+                new BuildPlatform("Web Player", WEB_PLAYER_PLATFORM_ID, true, LoadIcon(WEB_PLAYER_PLATFORM_ID)),
+                new BuildPlatform("iOS", IOS_PLATFORM_ID, true, LoadIcon(IOS_PLATFORM_ID)),
+                new BuildPlatform("Android", ANDROID_PLATFORM_ID, true, LoadIcon(WEB_PLAYER_PLATFORM_ID))
             };
         }
 
