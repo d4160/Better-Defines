@@ -10,7 +10,7 @@ namespace BetterDefines.Editor.Entity
         private static BetterDefinesSettings _instance;
 
         public List<CustomDefine> Defines;
-
+        public List<BuildPlatform> PlatformSettings;
 
         public static BetterDefinesSettings Instance
         {
