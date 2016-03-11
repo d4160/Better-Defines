@@ -16,10 +16,11 @@ public class BuildPlatform
     public string Id;
     public string Name;
 
-    public BuildPlatform(string name, string id, bool enabled)
+    public BuildPlatform(string name, string id, bool enabled, Texture2D icon)
     {
         Name = name;
         Id = id;
         Enabled = enabled;
+        Icon = icon;
     }
 }

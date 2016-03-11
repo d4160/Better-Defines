@@ -23,22 +23,26 @@ namespace BetterDefines.Editor
         public const string PS_VITA_PLATFORM_ID = "PSP2";
         public const string PS4_PLATFORM_ID = "PS4";
 
-        public static Texture2D StandaloneIcon;
+        public static Texture2D StandaloneIcon = LoadIcon("Standalone");
 
         public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
         {
             get { return _allBuildPlatforms.AsReadOnly(); }
         }
 
-        private static List<BuildPlatform> _allBuildPlatforms; 
+        private static readonly List<BuildPlatform> _allBuildPlatforms;
 
         static EditorUtils()
         {
-            _allBuildPlatforms = new List<BuildPlatform>()
+            _allBuildPlatforms = new List<BuildPlatform>
             {
-                new BuildPlatform("Web Player", WEB_PLAYER_PLATFORM_ID, true)
+                new BuildPlatform("Web Player", WEB_PLAYER_PLATFORM_ID, true, LoadIcon(WEB_PLAYER_PLATFORM_ID))
             };
-            StandaloneIcon = EditorGUIUtility.IconContent("BuildSettings.Standalone.Small").image as Texture2D;
+        }
+
+        private static Texture2D LoadIcon(string iconId)
+        {
+            return EditorGUIUtility.IconContent(string.Format("BuildSettings.{0}.Small", iconId)).image as Texture2D;
         }
 
         // TODO Remove
