@@ -21,10 +21,10 @@ namespace BetterDefines.Editor
                 EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width * 0.25f, EditorGUIUtility.singleLineHeight),
                     element.FindPropertyRelative("Define"), GUIContent.none);
                 var platformsWidth = rect.width * 0.75f;
-                var oneWidth = platformsWidth / 15;
-                for (int i = 0; i < 15; i++)
+                var oneWidth = platformsWidth / EditorUtils.AllBuildPlatforms.Count;
+                for (int i = 0; i < EditorUtils.AllBuildPlatforms.Count; i++)
                 {
-                    if (GUI.Toggle(new Rect(rect.width * 0.29f + i * oneWidth, rect.y, oneWidth, EditorGUIUtility.singleLineHeight * 0.9f), i % 2 == 0, new GUIContent(EditorUtils.StandaloneIcon, "Standalone"), EditorStyles.toolbarButton))
+                    if (GUI.Toggle(new Rect(rect.width * 0.28f + i * oneWidth, rect.y, oneWidth, EditorGUIUtility.singleLineHeight * 0.9f), i % 2 == 0, new GUIContent(EditorUtils.AllBuildPlatforms[i].Icon, "Standalone"), EditorStyles.toolbarButton))
                     {
                     }
                 }

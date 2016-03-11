@@ -48,11 +48,11 @@ namespace BetterDefines.Editor
         {
             GUILayout.Space(10);
             GUILayout.BeginHorizontal();
-            if (GUILayout.Toggle(_drawMainDefines, "Custom Defines", "toolbarbutton", GUILayout.MinWidth(60f)))
+            if (GUILayout.Toggle(_drawMainDefines, "Custom Defines", "toolbarbutton"))
             {
                 _drawMainDefines = true;
             }
-            if (GUILayout.Toggle(!_drawMainDefines, "Preferences", "toolbarbutton", GUILayout.MinWidth(60f)))
+            if (GUILayout.Toggle(!_drawMainDefines, "Preferences", "toolbarbutton"))
             {
                 _drawMainDefines = false;
             }
@@ -64,8 +64,11 @@ namespace BetterDefines.Editor
             EditorGUILayout.HelpBox("Please disable platforms that you are not using in your project. " +
                                     "For disabled platforms toggles will not be displayed in defines tab",
                 MessageType.Info);
-            if (GUILayout.Toggle(_drawMainDefines, "Custom Defines"))
+            foreach (var platform in EditorUtils.AllBuildPlatforms)
             {
+                if (GUILayout.Toggle(_drawMainDefines, new GUIContent(" " + platform.Name, platform.Icon)))
+                {
+                }
             }
         }
     }

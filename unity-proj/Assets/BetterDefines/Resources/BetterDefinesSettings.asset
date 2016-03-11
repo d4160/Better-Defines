@@ -28,3 +28,10 @@ MonoBehaviour:
     Platform: 14
   - Define: 
     Platform: 14
+  PlatformSettings:
+  - Enabled: 0
+    Id: 
+    Name: 
+  - Enabled: 0
+    Id: 
+    Name: 

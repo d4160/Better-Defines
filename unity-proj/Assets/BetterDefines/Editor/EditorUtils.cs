@@ -40,6 +40,7 @@ namespace BetterDefines.Editor
 
         static EditorUtils()
         {
+            // TODO Load from
             _allBuildPlatforms = new List<BuildPlatform>
             {
                 new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadIcon(STANDALONE_PLATFORM_ID)),
