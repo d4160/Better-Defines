@@ -24,7 +24,7 @@ namespace BetterDefines.Editor
                 var oneWidth = platformsWidth / 15;
                 for (int i = 0; i < 15; i++)
                 {
-                    if (GUI.Toggle(new Rect(rect.width * 0.29f + i * oneWidth, rect.y, oneWidth, EditorGUIUtility.singleLineHeight * 0.9f), true, new GUIContent(EditorUtils.StandaloneIcon, "Standalone"), EditorStyles.toolbarButton))
+                    if (GUI.Toggle(new Rect(rect.width * 0.29f + i * oneWidth, rect.y, oneWidth, EditorGUIUtility.singleLineHeight * 0.9f), i % 2 == 0, new GUIContent(EditorUtils.StandaloneIcon, "Standalone"), EditorStyles.toolbarButton))
                     {
                     }
                 }

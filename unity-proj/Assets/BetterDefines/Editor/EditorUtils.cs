@@ -11,6 +11,12 @@ namespace BetterDefines.Editor
     [InitializeOnLoad]
     public static class EditorUtils
     {
+        public const string WEB_PLAYER_PLATFORM_ID = "Web";
+        public const string STANDALONE_PLAYER_PLATFORM_ID = "Standalone";
+        public const string IOS_PLAYER_PLATFORM_ID = "iPhone";
+        public const string ANDROID_PLAYER_PLATFORM_ID = "Android";
+        public const string BLACKBERRY_PLAYER_PLATFORM_ID = "BlackBerry";
+
         public static Texture2D StandaloneIcon;
 
         public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
@@ -24,7 +30,7 @@ namespace BetterDefines.Editor
         {
             _allBuildPlatforms = new List<BuildPlatform>()
             {
-                new BuildPlatform("Web Player", "Web", true)
+                new BuildPlatform("Web Player", WEB_PLAYER_PLATFORM_ID, true)
             };
             StandaloneIcon = EditorGUIUtility.IconContent("BuildSettings.Standalone.Small").image as Texture2D;
         }
