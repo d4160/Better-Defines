@@ -46,7 +46,7 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadIcon(STANDALONE_PLATFORM_ID)),
                 new BuildPlatform("Web Player", WEB_PLAYER_PLATFORM_ID, true, LoadIcon(WEB_PLAYER_PLATFORM_ID)),
                 new BuildPlatform("iOS", IOS_PLATFORM_ID, true, LoadIcon(IOS_PLATFORM_ID)),
-                new BuildPlatform("Android", ANDROID_PLATFORM_ID, true, LoadIcon(WEB_PLAYER_PLATFORM_ID)),
+                new BuildPlatform("Android", ANDROID_PLATFORM_ID, true, LoadIcon(ANDROID_PLATFORM_ID)),
                 new BuildPlatform("BlackBerry", BLACKBERRY_PLATFORM_ID, true, LoadIcon(BLACKBERRY_PLATFORM_ID)),
                 new BuildPlatform("Tizen", TIZEN_PLATFORM_ID, true, LoadIcon(TIZEN_PLATFORM_ID)),
                 new BuildPlatform("Xbox 360", XBOX360_PLATFORM_ID, true, LoadIcon(XBOX360_PLATFORM_ID)),
