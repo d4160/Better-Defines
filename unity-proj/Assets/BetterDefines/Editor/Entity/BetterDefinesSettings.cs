@@ -19,6 +19,12 @@ namespace BetterDefines.Editor.Entity
             get { return _instance ?? (_instance = Resources.Load<BetterDefinesSettings>(SETTINGS_RESOURCE_NAME)); }
         }
 
+        public bool IsDefinePresent(string define)
+        {
+            return Defines.Any(x => x.Define == define);
+        }
+
+        #region global_platform_enables
         public PlatformEnabledState GetGlobalPlatformState(string platformId)
         {
             if (!platformId.IsValidBuildPlatformId())
@@ -28,7 +34,9 @@ namespace BetterDefines.Editor.Entity
 
             return EnabledPlatformsGlobal.Single(x => x.PlatformId == platformId);
         }
+        #endregion
 
+        #region defines
         public void SetDefineState(string define, string platformId, bool state)
         {
             if (!platformId.IsValidBuildPlatformId())
@@ -49,5 +57,6 @@ namespace BetterDefines.Editor.Entity
 
             return Defines.Single(x => x.Define == define).IsPlatformEnabled(platformId);
         }
+        #endregion
     }
 }
