@@ -34,34 +34,6 @@ namespace BetterDefines.Editor
 
                 DrawPlatformToggles(rect, defineProp.stringValue);
             };
-            list.onAddCallback += reorderableList =>
-            {
-                settingsSerializedObject.Update();
-                var index = listSerializedProperty.arraySize;
-                list.serializedProperty.arraySize++;
-                list.index = index;
-                var element = list.serializedProperty.GetArrayElementAtIndex(index);
-                var define = element.FindPropertyRelative("Define");
-
-                if (list.serializedProperty.arraySize == 1)
-                {
-                    define.stringValue = "EXAMPLE_DEFINE";
-                }
-                else
-                {
-                    var previousDefine = list.serializedProperty.GetArrayElementAtIndex(index).FindPropertyRelative("Define").stringValue;
-                    define.stringValue = previousDefine + "_NEW"; // we need a unique name
-                }
-
-                // disable all by default
-                var defineSettings = element.FindPropertyRelative("StatesForPlatforms");
-                for (int i = 0; i < defineSettings.arraySize; i++)
-                {
-                    defineSettings.GetArrayElementAtIndex(i).FindPropertyRelative("IsEnabled").boolValue = true;
-                }
-
-                settingsSerializedObject.ApplyModifiedProperties();
-            };
             return list;
         }
 

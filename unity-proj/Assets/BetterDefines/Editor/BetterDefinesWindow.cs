@@ -63,7 +63,7 @@ namespace BetterDefines.Editor
             GUI.enabled = isBtnActive;
             if (GUILayout.Button("ADD"))
             {
-
+                AddElement(addDefineText);
             }
             GUI.enabled = true;
 
@@ -73,6 +73,24 @@ namespace BetterDefines.Editor
                 EditorGUILayout.HelpBox("Invalid symbol name", MessageType.Error);
             }
             EditorGUILayout.EndVertical();
+        }
+
+        private void AddElement(string validDefine)
+        {
+            settingsSerializedObject.Update();
+            var index = list.serializedProperty.arraySize;
+            list.serializedProperty.arraySize++;
+            var customDefine = list.serializedProperty.GetArrayElementAtIndex(index);
+            customDefine.FindPropertyRelative("Define").stringValue = validDefine;
+
+            // disable all by default
+            var defineSettings = customDefine.FindPropertyRelative("StatesForPlatforms");
+            for (int i = 0; i < defineSettings.arraySize; i++)
+            {
+                defineSettings.GetArrayElementAtIndex(i).FindPropertyRelative("IsEnabled").boolValue = true;
+            }
+
+            settingsSerializedObject.ApplyModifiedProperties();
         }
 
         private void DrawTopSettingsTabs()
