@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using BetterDefines.Editor.Entity;
 using UnityEditor;
 using UnityEngine;
@@ -31,11 +32,6 @@ namespace BetterDefines.Editor
 
         public static Texture2D StandaloneIcon = LoadIcon("Standalone");
 
-        public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
-        {
-            get { return _allBuildPlatforms.AsReadOnly(); }
-        }
-
         private static readonly List<BuildPlatform> _allBuildPlatforms;
 
         static EditorUtils()
@@ -59,8 +55,18 @@ namespace BetterDefines.Editor
                 new BuildPlatform("Windows Store", WINDOWS_STORE_PLATFORM_ID, true, LoadIcon(WINDOWS_STORE_PLATFORM_ID)),
                 new BuildPlatform("WebGL", WEB_GL_PLATFORM_ID, true, LoadIcon(WEB_GL_PLATFORM_ID)),
                 new BuildPlatform("Samsung TV", SAMSUNG_TV_PLATFORM_ID, true, LoadIcon(SAMSUNG_TV_PLATFORM_ID)),
-                new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadIcon(NINTENDO_3DS_PLATFORM_ID)),
+                new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadIcon(NINTENDO_3DS_PLATFORM_ID))
             };
+        }
+
+        public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
+        {
+            get { return _allBuildPlatforms.AsReadOnly(); }
+        }
+
+        public static bool IsValidBuildPlatformId(this string platformId)
+        {
+            return !string.IsNullOrEmpty(platformId) && AllBuildPlatforms.Any(x => x.Id == platformId);
         }
 
         private static Texture2D LoadIcon(string iconId)
@@ -68,6 +74,7 @@ namespace BetterDefines.Editor
             return EditorGUIUtility.IconContent(string.Format("BuildSettings.{0}.Small", iconId)).image as Texture2D;
         }
 
+        #region storage
         // TODO Remove
         [MenuItem("Better Defines/Create Settings")]
         public static void CreateSettings()
@@ -113,4 +120,5 @@ namespace BetterDefines.Editor
             Selection.activeObject = asset;
         }
     }
+    #endregion
 }

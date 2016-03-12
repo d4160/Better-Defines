@@ -20,10 +20,12 @@ namespace BetterDefines.Editor
             {
                 rect.y += 2;
                 var element = list.serializedProperty.GetArrayElementAtIndex(index);
-                EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width*0.25f, EditorGUIUtility.singleLineHeight),
-                    element.FindPropertyRelative("Define"), GUIContent.none);
+                var defineProp = element.FindPropertyRelative("Define");
 
-                DrawPlatformToggles(rect);
+                EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width*0.25f, EditorGUIUtility.singleLineHeight),
+                    defineProp, GUIContent.none);
+
+                DrawPlatformToggles(rect, defineProp.stringValue);
                 //if (GUI.Toggle(new Rect(rect.x + 300, rect.y, 100, EditorGUIUtility.singleLineHeight * 0.9f), true, new GUIContent(EditorUtils.StandaloneIcon, "Standalone"), EditorStyles.toolbarButton))
                 //{
 
@@ -32,19 +34,19 @@ namespace BetterDefines.Editor
             return list;
         }
 
-        private static void DrawPlatformToggles(Rect rect)
+        private static void DrawPlatformToggles(Rect rect, string define)
         {
+            var settings = BetterDefinesSettings.Instance;
             var platformsWidth = rect.width*0.75f;
-            var filteredPlatforms =
-                EditorUtils.AllBuildPlatforms.Where(x => BetterDefinesSettings.Instance.GetGlobalPlatformState(x.Id).IsEnabled).ToList();
+            var filteredPlatforms = EditorUtils.AllBuildPlatforms.Where(x => settings.GetGlobalPlatformState(x.Id).IsEnabled).ToList();
             var singleToggleWidth = platformsWidth/filteredPlatforms.Count;
 
             for (var i = 0; i < filteredPlatforms.Count; i++)
             {
-                if (GUI.Toggle(GetPlatformToggleRect(rect, singleToggleWidth, i), i%2 == 0,
-                    filteredPlatforms[i].ToGUIContent(), EditorStyles.toolbarButton))
-                {
-                }
+                var isEnabled = settings.GetDefineState(define, filteredPlatforms[i].Id);
+                var result = GUI.Toggle(GetPlatformToggleRect(rect, singleToggleWidth, i), isEnabled,
+                    filteredPlatforms[i].ToGUIContent(), EditorStyles.toolbarButton);
+                settings.SetDefineState(define, filteredPlatforms[i].Id, result);
             }
         }
 

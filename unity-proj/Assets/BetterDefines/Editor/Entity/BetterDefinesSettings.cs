@@ -19,14 +19,35 @@ namespace BetterDefines.Editor.Entity
             get { return _instance ?? (_instance = Resources.Load<BetterDefinesSettings>(SETTINGS_RESOURCE_NAME)); }
         }
 
-        public PlatformEnabledState GetGlobalPlatformState(string id)
+        public PlatformEnabledState GetGlobalPlatformState(string platformId)
         {
-            if (string.IsNullOrEmpty(id) || EditorUtils.AllBuildPlatforms.All(x => x.Id != id))
+            if (!platformId.IsValidBuildPlatformId())
             {
-                throw new InvalidOperationException("Incorrect platform id: " + id);
+                throw new InvalidOperationException("Incorrect platform platformId: " + platformId);
             }
 
-            return EnabledPlatformsGlobal.Single(x => x.PlatformId == id);
+            return EnabledPlatformsGlobal.Single(x => x.PlatformId == platformId);
+        }
+
+        public void SetDefineState(string define, string platformId, bool state)
+        {
+            if (!platformId.IsValidBuildPlatformId())
+            {
+                throw new InvalidOperationException("Incorrect platform platformId: " + platformId);
+            }
+
+            var customDefine = Defines.Single(x => x.Define == define);
+            customDefine.EnableForPlatform(platformId, state);
+        }
+
+        public bool GetDefineState(string define, string platformId)
+        {
+            if (!platformId.IsValidBuildPlatformId())
+            {
+                throw new InvalidOperationException("Incorrect platform platformId: " + platformId);
+            }
+
+            return Defines.Single(x => x.Define == define).IsPlatformEnabled(platformId);
         }
     }
 }
