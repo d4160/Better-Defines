@@ -15,31 +15,73 @@ MonoBehaviour:
   - Define: FIRST_EVER
     StatesForPlatforms:
     - PlatformId: Standalone
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: Web
       IsEnabled: 0
     - PlatformId: iPhone
       IsEnabled: 0
     - PlatformId: Android
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: PS3
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: PSP2
       IsEnabled: 0
     - PlatformId: WiiU
       IsEnabled: 0
     - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: Tizen
       IsEnabled: 0
   - Define: TEST
     StatesForPlatforms:
     - PlatformId: Standalone
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: Web
       IsEnabled: 0
     - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 0
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: Tizen
+      IsEnabled: 0
+  - Define: TEST_NEW
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 0
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 0
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: Tizen
+      IsEnabled: 0
+  - Define: TEST_NEW_NEW
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: iPhone
       IsEnabled: 0
     - PlatformId: Android
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: PS3
       IsEnabled: 0
     - PlatformId: PSP2
@@ -48,6 +90,48 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: Metro
       IsEnabled: 0
+    - PlatformId: Tizen
+      IsEnabled: 1
+  - Define: TEST_NEW_NEW_NEW
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 0
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 0
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 0
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: Tizen
+      IsEnabled: 1
+  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 0
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: Tizen
+      IsEnabled: 1
   EnabledPlatformsGlobal:
   - PlatformId: Standalone
     IsEnabled: 1
@@ -60,7 +144,7 @@ MonoBehaviour:
   - PlatformId: BlackBerry
     IsEnabled: 0
   - PlatformId: Tizen
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: XBox360
     IsEnabled: 0
   - PlatformId: XboxOne
