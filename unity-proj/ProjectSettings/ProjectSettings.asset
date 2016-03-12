@@ -174,8 +174,8 @@ PlayerSettings:
     m_Icons:
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 128
-      m_Height: 128
+      m_Width: 1
+      m_Height: 1
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   webPlayerTemplate: APPLICATION:Default
@@ -417,7 +417,9 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   intPropertyNames:
   - Android::ScriptingBackend
+  - Metro::ScriptingBackend
   - Standalone::ScriptingBackend
+  - WP8::ScriptingBackend
   - WebGL::ScriptingBackend
   - WebGL::audioCompressionFormat
   - WebGL::exceptionSupport
@@ -427,7 +429,9 @@ PlayerSettings:
   - iOS::EnableIncrementalBuildSupportForIl2cpp
   - iOS::ScriptingBackend
   Android::ScriptingBackend: 0
+  Metro::ScriptingBackend: 2
   Standalone::ScriptingBackend: 0
+  WP8::ScriptingBackend: 2
   WebGL::ScriptingBackend: 1
   WebGL::audioCompressionFormat: 4
   WebGL::exceptionSupport: 1

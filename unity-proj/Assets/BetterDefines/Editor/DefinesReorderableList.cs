@@ -13,9 +13,10 @@ namespace BetterDefines.Editor
             var listSerializedProperty = settingsSerializedObject.FindProperty("Defines");
             var list = new ReorderableList(settingsSerializedObject, listSerializedProperty,
                 true,
-                false, true, true)
+                true, false, true);
+            list.drawHeaderCallback += rect =>
             {
-                headerHeight = 0f
+                EditorGUI.LabelField(rect, "Custom Scripting Define Symbols");
             };
             list.drawElementCallback += (rect, index, active, focused) =>
             {

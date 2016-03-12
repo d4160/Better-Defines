@@ -1,4 +1,5 @@
-﻿using BetterDefines.Editor.Entity;
+﻿using System.CodeDom.Compiler;
+using BetterDefines.Editor.Entity;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace BetterDefines.Editor
         private bool drawMainDefines = true;
         private ReorderableList list;
         private SerializedObject settingsSerializedObject;
+
+        private string addDefineText = "NEW_DEFINE_SCRIPTING_SYMBOL";
 
         [MenuItem("Window/Better Defines")]
         private static void Init()
@@ -40,6 +43,7 @@ namespace BetterDefines.Editor
             settingsSerializedObject.Update();
             if (drawMainDefines)
             {
+                DrawAddDefine();
                 list.DoLayoutList();
             }
             else
@@ -47,6 +51,28 @@ namespace BetterDefines.Editor
                 DrawPreferences();
             }
             settingsSerializedObject.ApplyModifiedProperties();
+        }
+
+        private void DrawAddDefine()
+        {
+            EditorGUILayout.BeginVertical("box");
+            EditorGUILayout.BeginHorizontal();
+            addDefineText = EditorGUILayout.TextField(addDefineText);
+            bool isBtnActive = addDefineText.IsValidDefineName();
+
+            GUI.enabled = isBtnActive;
+            if (GUILayout.Button("ADD"))
+            {
+
+            }
+            GUI.enabled = true;
+
+            EditorGUILayout.EndHorizontal();
+            if (!addDefineText.IsValidDefineName())
+            {
+                EditorGUILayout.HelpBox("Invalid symbol name", MessageType.Error);
+            }
+            EditorGUILayout.EndVertical();
         }
 
         private void DrawTopSettingsTabs()
