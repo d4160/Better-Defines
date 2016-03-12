@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using System.Linq;
+using BetterDefines.Editor.Entity;
+using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -21,8 +23,9 @@ namespace BetterDefines.Editor
                 EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width * 0.25f, EditorGUIUtility.singleLineHeight),
                     element.FindPropertyRelative("Define"), GUIContent.none);
                 var platformsWidth = rect.width * 0.75f;
-                var oneWidth = platformsWidth / EditorUtils.AllBuildPlatforms.Count;
-                for (int i = 0; i < EditorUtils.AllBuildPlatforms.Count; i++)
+                var filteredPlatfroms = EditorUtils.AllBuildPlatforms.Where(x => BetterDefinesSettings.Instance.GetGlobalPlatformState(x.Id).IsEnabled).ToList();
+                var oneWidth = platformsWidth / filteredPlatfroms.Count;
+                for (int i = 0; i < filteredPlatfroms.Count; i++)
                 {
                     if (GUI.Toggle(new Rect(rect.width * 0.28f + i * oneWidth, rect.y, oneWidth, EditorGUIUtility.singleLineHeight * 0.9f), i % 2 == 0, new GUIContent(EditorUtils.AllBuildPlatforms[i].Icon, "Standalone"), EditorStyles.toolbarButton))
                     {
@@ -33,18 +36,6 @@ namespace BetterDefines.Editor
 
                 //}
             };
-            //list.drawElementBackgroundCallback = (rect, index, active, focused) =>
-            //{
-            //    Texture2D tex = new Texture2D(1, 1);
-            //    tex.SetPixel(0, 0, new Color(0.33f, 0.66f, 1f, 0.66f));
-            //    tex.Apply();
-            //    if (active)
-            //    {
-            //        rect.height = 40f;
-            //        GUI.DrawTexture(rect, tex as Texture);
-            //    }
-            //};
-            //list.elementHeightCallback += index => 40f;
             return list;
         }
     }

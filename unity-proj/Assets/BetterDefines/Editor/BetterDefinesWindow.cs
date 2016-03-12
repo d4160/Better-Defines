@@ -66,7 +66,10 @@ namespace BetterDefines.Editor
             foreach (var platform in EditorUtils.AllBuildPlatforms)
             {
                 var setting = BetterDefinesSettings.Instance.GetGlobalPlatformState(platform.Id);
+
+                if (setting.PlatformId == EditorUtils.STANDALONE_PLATFORM_ID) { GUI.enabled = false; }
                 setting.IsEnabled = GUILayout.Toggle(setting.IsEnabled, new GUIContent(" " + platform.Name, platform.Icon));
+                if (setting.PlatformId == EditorUtils.STANDALONE_PLATFORM_ID) { GUI.enabled = true; }
             }
         }
     }
