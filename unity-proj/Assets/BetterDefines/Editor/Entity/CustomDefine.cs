@@ -12,6 +12,15 @@ namespace BetterDefines.Editor.Entity
         public string Define;
         public List<PlatformEnabledState> StatesForPlatforms;
 
+        public CustomDefine(string id)
+        {
+            StatesForPlatforms = new List<PlatformEnabledState>();
+            foreach (var platform in EditorUtils.AllBuildPlatforms)
+            {
+                StatesForPlatforms.Add(new PlatformEnabledState(platform.Id, false));
+            }
+        }
+
         public bool IsPlatformEnabled(string platformId)
         {
             if (string.IsNullOrEmpty(platformId))
@@ -21,7 +30,7 @@ namespace BetterDefines.Editor.Entity
 
             if (StatesForPlatforms.All(x => x.PlatformId != platformId))
             {
-                Debug.LogWarning("Platform id not available. Adding it to " + Define);
+                Debug.LogWarning("Platform id " + platformId + " not available. Adding it to " + Define);
                 // TODO Change to be initialized correctly when added by (+)
                 StatesForPlatforms.Add(new PlatformEnabledState(platformId, false));
             }

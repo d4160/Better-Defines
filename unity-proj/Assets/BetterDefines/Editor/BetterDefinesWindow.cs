@@ -7,7 +7,7 @@ namespace BetterDefines.Editor
 {
     public class BetterDefinesWindow : EditorWindow
     {
-        private bool _drawMainDefines = true;
+        private bool drawMainDefines = true;
         private ReorderableList list;
         private SerializedObject settingsSerializedObject;
 
@@ -38,7 +38,7 @@ namespace BetterDefines.Editor
                 LoadSettings();
             }
             settingsSerializedObject.Update();
-            if (_drawMainDefines)
+            if (drawMainDefines)
             {
                 list.DoLayoutList();
             }
@@ -53,13 +53,13 @@ namespace BetterDefines.Editor
         {
             GUILayout.Space(10);
             GUILayout.BeginHorizontal();
-            if (GUILayout.Toggle(_drawMainDefines, "Custom Defines", "toolbarbutton"))
+            if (GUILayout.Toggle(drawMainDefines, "Custom Defines", "toolbarbutton"))
             {
-                _drawMainDefines = true;
+                drawMainDefines = true;
             }
-            if (GUILayout.Toggle(!_drawMainDefines, "Preferences", "toolbarbutton"))
+            if (GUILayout.Toggle(!drawMainDefines, "Preferences", "toolbarbutton"))
             {
-                _drawMainDefines = false;
+                drawMainDefines = false;
             }
             GUILayout.EndHorizontal();
         }

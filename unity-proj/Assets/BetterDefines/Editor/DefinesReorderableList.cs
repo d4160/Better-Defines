@@ -10,7 +10,8 @@ namespace BetterDefines.Editor
     {
         public static ReorderableList Create(SerializedObject settingsSerializedObject)
         {
-            var list = new ReorderableList(settingsSerializedObject, settingsSerializedObject.FindProperty("Defines"),
+            var listSerializedProperty = settingsSerializedObject.FindProperty("Defines");
+            var list = new ReorderableList(settingsSerializedObject, listSerializedProperty,
                 true,
                 false, true, true)
             {
@@ -30,6 +31,18 @@ namespace BetterDefines.Editor
                 //{
 
                 //}
+            };
+            list.onAddCallback += reorderableList =>
+            {
+                settingsSerializedObject.Update();
+                var index = listSerializedProperty.arraySize;
+                list.serializedProperty.arraySize++;
+                list.index = index;
+                var element = list.serializedProperty.GetArrayElementAtIndex(index);
+                // list was empty before, 1st element added
+                var define = element.FindPropertyRelative("Define");
+                define.stringValue = list.serializedProperty.arraySize == 1 ? "FIRST_EVER" : "TEST";
+                settingsSerializedObject.ApplyModifiedProperties();
             };
             return list;
         }

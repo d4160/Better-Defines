@@ -12,41 +12,11 @@ MonoBehaviour:
   m_Name: BetterDefinesSettings
   m_EditorClassIdentifier: 
   Defines:
-  - Define: ccc
+  - Define: FIRST_EVER
     StatesForPlatforms:
     - PlatformId: Standalone
       IsEnabled: 0
-    - PlatformId: iPhone
-      IsEnabled: 0
-    - PlatformId: Android
-      IsEnabled: 0
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-  - Define: vvv
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 0
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-  - Define: xxx
-    StatesForPlatforms:
-    - PlatformId: Standalone
+    - PlatformId: Web
       IsEnabled: 0
     - PlatformId: iPhone
       IsEnabled: 0
@@ -54,65 +24,35 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: PS3
       IsEnabled: 0
+    - PlatformId: PSP2
+      IsEnabled: 0
     - PlatformId: WiiU
       IsEnabled: 0
     - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: BlackBerry
       IsEnabled: 0
-  - Define: bbb
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 0
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-  - Define: 1123
+  - Define: TEST
     StatesForPlatforms:
     - PlatformId: Standalone
       IsEnabled: 0
+    - PlatformId: Web
+      IsEnabled: 0
     - PlatformId: iPhone
-      IsEnabled: 1
+      IsEnabled: 0
     - PlatformId: Android
-      IsEnabled: 1
+      IsEnabled: 0
     - PlatformId: PS3
-      IsEnabled: 1
+      IsEnabled: 0
+    - PlatformId: PSP2
+      IsEnabled: 0
     - PlatformId: WiiU
       IsEnabled: 0
     - PlatformId: Metro
       IsEnabled: 0
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-  - Define: aaa
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 0
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 1
   EnabledPlatformsGlobal:
   - PlatformId: Standalone
     IsEnabled: 1
   - PlatformId: Web
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: iPhone
     IsEnabled: 1
   - PlatformId: Android
@@ -128,7 +68,7 @@ MonoBehaviour:
   - PlatformId: PS3
     IsEnabled: 1
   - PlatformId: PSP2
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: PS4
     IsEnabled: 0
   - PlatformId: StandaloneGLESEmu
