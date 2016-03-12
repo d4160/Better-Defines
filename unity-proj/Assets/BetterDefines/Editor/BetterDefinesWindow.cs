@@ -15,7 +15,12 @@ namespace BetterDefines.Editor
         private static void Init()
         {
             var window = (BetterDefinesWindow) GetWindow(typeof (BetterDefinesWindow));
+#if UNITY_5_3
             window.titleContent = new GUIContent("Defines");
+#else
+            window.title = "Defines";
+#endif
+
             window.Show();
         }
 
