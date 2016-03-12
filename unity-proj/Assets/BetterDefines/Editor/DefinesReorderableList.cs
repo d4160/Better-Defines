@@ -23,14 +23,15 @@ namespace BetterDefines.Editor
                 var element = list.serializedProperty.GetArrayElementAtIndex(index);
                 var defineProp = element.FindPropertyRelative("Define");
 
-                EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width*0.25f, EditorGUIUtility.singleLineHeight),
-                    defineProp, GUIContent.none);
+                EditorGUI.BeginChangeCheck();
+                EditorGUI.SelectableLabel(new Rect(rect.x, rect.y, rect.width*0.25f, EditorGUIUtility.singleLineHeight),
+                    defineProp.stringValue);
+                if (EditorGUI.EndChangeCheck())
+                {
+                    defineProp.stringValue = defineProp.stringValue;
+                }
 
                 DrawPlatformToggles(rect, defineProp.stringValue);
-                //if (GUI.Toggle(new Rect(rect.x + 300, rect.y, 100, EditorGUIUtility.singleLineHeight * 0.9f), true, new GUIContent(EditorUtils.StandaloneIcon, "Standalone"), EditorStyles.toolbarButton))
-                //{
-
-                //}
             };
             list.onAddCallback += reorderableList =>
             {
