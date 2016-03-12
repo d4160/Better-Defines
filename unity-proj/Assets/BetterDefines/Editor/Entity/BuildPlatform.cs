@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace BetterDefines.Editor.Entity
 {
-    [Serializable]
     public class BuildPlatform
     {
         public bool Enabled;
@@ -22,6 +21,11 @@ namespace BetterDefines.Editor.Entity
             Id = id;
             Enabled = enabled;
             Icon = icon;
+        }
+
+        public GUIContent ToGUIContent()
+        {
+            return new GUIContent(Icon, Name);
         }
     }
 }

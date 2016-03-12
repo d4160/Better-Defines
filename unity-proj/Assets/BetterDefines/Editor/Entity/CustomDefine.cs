@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using UnityEditor;
 
 namespace BetterDefines.Editor.Entity
 {
@@ -6,6 +7,6 @@ namespace BetterDefines.Editor.Entity
     public class CustomDefine
     {
         public string Define;
-        public BuildTargetGroup Platform;
+        public List<PlatformEnabledState> statesForPlatforms;
     }
 }
