@@ -62,13 +62,11 @@ namespace BetterDefines.Editor
         private void DrawPreferences()
         {
             EditorGUILayout.HelpBox("Please disable platforms that you are not using in your project. " +
-                                    "For disabled platforms toggles will not be displayed in defines tab",
-                MessageType.Info);
+                                    "For disabled platforms toggles will not be displayed in defines tab", MessageType.Info);
             foreach (var platform in EditorUtils.AllBuildPlatforms)
             {
-                if (GUILayout.Toggle(_drawMainDefines, new GUIContent(" " + platform.Name, platform.Icon)))
-                {
-                }
+                var setting = BetterDefinesSettings.Instance.GetGlobalPlatformState(platform.Id);
+                setting.IsEnabled = GUILayout.Toggle(setting.IsEnabled, new GUIContent(" " + platform.Name, platform.Icon));
             }
         }
     }
