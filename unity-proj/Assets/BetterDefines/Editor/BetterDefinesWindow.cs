@@ -59,19 +59,21 @@ namespace BetterDefines.Editor
             EditorGUILayout.BeginHorizontal();
             addDefineText = EditorGUILayout.TextField(addDefineText);
 
+            bool isEmpty = string.IsNullOrEmpty(addDefineText);
             bool isNameValid = addDefineText.IsValidDefineName();
             bool isAlreadyAdded = BetterDefinesSettings.Instance.IsDefinePresent(addDefineText);
 
-            GUI.enabled = isNameValid && !isAlreadyAdded;
+            GUI.enabled = !isEmpty && isNameValid && !isAlreadyAdded;
             if (GUILayout.Button("ADD"))
             {
                 AddElement(addDefineText);
+                addDefineText = string.Empty;
             }
             GUI.enabled = true;
 
             EditorGUILayout.EndHorizontal();
-            if (!isNameValid) { EditorGUILayout.HelpBox("Invalid symbol name", MessageType.Error); }
-            if (isAlreadyAdded) { EditorGUILayout.HelpBox("Symbol already added", MessageType.Error); }
+            if (!isEmpty && !isNameValid) { EditorGUILayout.HelpBox("Invalid symbol name", MessageType.Error); }
+            if (!isEmpty && isAlreadyAdded) { EditorGUILayout.HelpBox("Symbol already added", MessageType.Error); }
             EditorGUILayout.EndVertical();
         }
 
