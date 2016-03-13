@@ -30,8 +30,7 @@ namespace BetterDefines.Editor.Entity
 
             if (StatesForPlatforms.All(x => x.PlatformId != platformId))
             {
-                Debug.LogWarning("Platform id " + platformId + " not available. Adding it to " + Define);
-                // TODO Change to be initialized correctly when added by (+)
+                //Debug.LogWarning("Platform id " + platformId + " not available. Adding it to " + Define);
                 StatesForPlatforms.Add(new PlatformEnabledState(platformId, false));
             }
 

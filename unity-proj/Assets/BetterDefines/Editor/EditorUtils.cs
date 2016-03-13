@@ -30,13 +30,15 @@ namespace BetterDefines.Editor
         public const string SAMSUNG_TV_PLATFORM_ID = "SamsungTV";
         public const string NINTENDO_3DS_PLATFORM_ID = "N3DS";
 
-        public static Texture2D StandaloneIcon = LoadIcon("Standalone");
-
         private static readonly List<BuildPlatform> _allBuildPlatforms;
+
+        public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
+        {
+            get { return _allBuildPlatforms.AsReadOnly(); }
+        }
 
         static EditorUtils()
         {
-            // TODO Load from
             _allBuildPlatforms = new List<BuildPlatform>
             {
                 new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadIcon(STANDALONE_PLATFORM_ID)),
@@ -59,11 +61,6 @@ namespace BetterDefines.Editor
             };
         }
 
-        public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
-        {
-            get { return _allBuildPlatforms.AsReadOnly(); }
-        }
-
         public static bool IsValidBuildPlatformId(this string platformId)
         {
             return !string.IsNullOrEmpty(platformId) && AllBuildPlatforms.Any(x => x.Id == platformId);
@@ -75,13 +72,6 @@ namespace BetterDefines.Editor
         }
 
         #region storage
-        // TODO Remove
-        [MenuItem("Better Defines/Create Settings")]
-        public static void CreateSettings()
-        {
-            CreateAsset<BetterDefinesSettings>(BetterDefinesSettings.SETTINGS_RESOURCE_NAME);
-        }
-
         /// <summary>
         ///     Creates .asset file of the specified <see cref="UnityEngine.ScriptableObject" />
         /// </summary>
