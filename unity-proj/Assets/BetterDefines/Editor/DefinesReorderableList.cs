@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text.RegularExpressions;
 using BetterDefines.Editor.Entity;
 using UnityEditor;
 using UnityEditorInternal;
@@ -8,6 +9,8 @@ namespace BetterDefines.Editor
 {
     public static class DefinesReorderableList
     {
+        private static readonly string ARROW_DOWN = Regex.Unescape("\u25BC");
+
         public static ReorderableList Create(SerializedObject settingsSerializedObject)
         {
             var listSerializedProperty = settingsSerializedObject.FindProperty("Defines");
@@ -62,6 +65,7 @@ namespace BetterDefines.Editor
         private const string ENABLE_SELECTED_ACTION_ID = "ENABLE_SELECTED";
         private const string ADD_TO_ALL_ACTION_ID = "ADD_TO_ALL";
 
+
         private class ActionParams
         {
             public string Define;
@@ -73,7 +77,7 @@ namespace BetterDefines.Editor
             var xPos = rect.x + rect.width*0.95f;
             var width = rect.width*0.05f;
             GUI.color = Color.green;
-            if (GUI.Button(new Rect(xPos, rect.y, width, EditorGUIUtility.singleLineHeight), "+"))
+            if (GUI.Button(new Rect(xPos, rect.y, width, EditorGUIUtility.singleLineHeight), ARROW_DOWN))
             {
                 var menu = new GenericMenu();
                 menu.AddItem(new GUIContent("Remove From All Platforms"), false, ActionClickHandler,
@@ -96,7 +100,7 @@ namespace BetterDefines.Editor
                     BetterDefinesUtils.RemoveDefineFromAll(data.Define);
                     break;
                 case ADD_TO_ALL_ACTION_ID:
-                    // TODO
+                    // TODO Implement
                     break;
                 case ENABLE_SELECTED_ACTION_ID:
                     BetterDefinesUtils.AddDefineToAll(data.Define);
