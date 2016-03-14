@@ -61,8 +61,8 @@ namespace BetterDefines.Editor
         }
 
         #region action_context_menu
+        private const string APPLY_CONFIG_ACTION_ID = "APPLY_CONFIG";
         private const string REMOVE_FROM_ALL_ACTION_ID = "REMOVE_FROM_ALL";
-        private const string ENABLE_SELECTED_ACTION_ID = "ENABLE_SELECTED";
         private const string ADD_TO_ALL_ACTION_ID = "ADD_TO_ALL";
 
 
@@ -80,12 +80,12 @@ namespace BetterDefines.Editor
             if (GUI.Button(new Rect(xPos, rect.y, width, EditorGUIUtility.singleLineHeight), ARROW_DOWN))
             {
                 var menu = new GenericMenu();
+                menu.AddItem(new GUIContent("Apply Configuration"), false, ActionClickHandler,
+                    new ActionParams {Id = APPLY_CONFIG_ACTION_ID, Define = define});
+                menu.AddItem(new GUIContent("Add to All Platforms"), false, ActionClickHandler,
+                    new ActionParams {Id = APPLY_CONFIG_ACTION_ID, Define = define});
                 menu.AddItem(new GUIContent("Remove From All Platforms"), false, ActionClickHandler,
                     new ActionParams {Id = REMOVE_FROM_ALL_ACTION_ID, Define = define});
-                menu.AddItem(new GUIContent("Enable Only For Selected Platforms"), false, ActionClickHandler,
-                    new ActionParams {Id = ENABLE_SELECTED_ACTION_ID, Define = define});
-                menu.AddItem(new GUIContent("Add to All Platforms"), false, ActionClickHandler,
-                    new ActionParams {Id = ENABLE_SELECTED_ACTION_ID, Define = define});
                 menu.ShowAsContext();
             }
             GUI.color = Color.white;
@@ -96,14 +96,14 @@ namespace BetterDefines.Editor
             var data = (ActionParams) target;
             switch (data.Id)
             {
-                case REMOVE_FROM_ALL_ACTION_ID:
-                    BetterDefinesUtils.RemoveDefineFromAll(data.Define);
-                    break;
-                case ADD_TO_ALL_ACTION_ID:
+                case APPLY_CONFIG_ACTION_ID:
                     // TODO Implement
                     break;
-                case ENABLE_SELECTED_ACTION_ID:
+                case ADD_TO_ALL_ACTION_ID:
                     BetterDefinesUtils.AddDefineToAll(data.Define);
+                    break;
+                case REMOVE_FROM_ALL_ACTION_ID:
+                    BetterDefinesUtils.RemoveDefineFromAll(data.Define);
                     break;
                 default:
                     Debug.LogError("Id not present");
