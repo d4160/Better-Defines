@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEngine;
 
 namespace BetterDefines.Editor.Entity
 {
@@ -11,7 +9,6 @@ namespace BetterDefines.Editor.Entity
     {
         public string Define;
         public List<PlatformEnabledState> StatesForPlatforms;
-
         public CustomDefine(string id)
         {
             StatesForPlatforms = new List<PlatformEnabledState>();

@@ -33,6 +33,7 @@ namespace BetterDefines.Editor
                 }
 
                 DrawPlatformToggles(rect, defineProp.stringValue);
+                DrawActionButton(rect);
             };
             return list;
         }
@@ -40,7 +41,7 @@ namespace BetterDefines.Editor
         private static void DrawPlatformToggles(Rect rect, string define)
         {
             var settings = BetterDefinesSettings.Instance;
-            var platformsWidth = rect.width*0.75f;
+            var platformsWidth = rect.width*0.7f;
             var filteredPlatforms = EditorUtils.AllBuildPlatforms.Where(x => settings.GetGlobalPlatformState(x.Id).IsEnabled).ToList();
             var singleToggleWidth = platformsWidth/filteredPlatforms.Count;
 
@@ -55,8 +56,31 @@ namespace BetterDefines.Editor
 
         private static Rect GetPlatformToggleRect(Rect rect, float singleToggleWidth, int index)
         {
-            var platformsXStartPos = rect.x + rect.width*0.25f;
-            return new Rect(platformsXStartPos + index*singleToggleWidth, rect.y, singleToggleWidth, EditorGUIUtility.singleLineHeight);
+            var platformsXStartPos = rect.x + rect.width * 0.23f;
+            return new Rect(platformsXStartPos + index * singleToggleWidth, rect.y, singleToggleWidth, EditorGUIUtility.singleLineHeight);
+        }
+
+        private static void DrawActionButton(Rect rect)
+        {
+            var xPos = rect.x + rect.width * 0.95f;
+            var width = rect.width*0.05f;
+            GUI.color = Color.green;
+            if (GUI.Button(new Rect(xPos, rect.y, width, EditorGUIUtility.singleLineHeight), "+"))
+            {
+                var menu = new GenericMenu();
+                menu.AddItem(new GUIContent("Remove From All Platfroms"), false, ActionClickHandler, "DELETE_ALL");
+                menu.ShowAsContext();
+            }
+            GUI.color = Color.white;
+        }
+
+        private static void ActionClickHandler(object target)
+        {
+            var data = (string) target;
+            if (data == "DELETE_ALL")
+            {
+
+            }
         }
     }
 }

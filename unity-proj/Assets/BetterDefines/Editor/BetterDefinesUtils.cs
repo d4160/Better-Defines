@@ -5,7 +5,7 @@ namespace BetterDefines.Editor
 {
     public static class BetterDefinesUtils
     {
-        private static void ToggleFlag(string targetFlag, bool enable, params BuildTargetGroup[] supportedPlatforms)
+        public static void ToggleFlag(string targetFlag, bool enable, params BuildTargetGroup[] supportedPlatforms)
         {
             foreach (var targetPlatform in supportedPlatforms)
             {
