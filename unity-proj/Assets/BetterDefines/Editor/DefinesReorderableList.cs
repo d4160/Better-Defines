@@ -14,10 +14,7 @@ namespace BetterDefines.Editor
             var list = new ReorderableList(settingsSerializedObject, listSerializedProperty,
                 true,
                 true, false, true);
-            list.drawHeaderCallback += rect =>
-            {
-                EditorGUI.LabelField(rect, "Custom Scripting Define Symbols");
-            };
+            list.drawHeaderCallback += rect => { EditorGUI.LabelField(rect, "Custom Scripting Define Symbols"); };
             list.drawElementCallback += (rect, index, active, focused) =>
             {
                 rect.y += 2;
@@ -33,7 +30,7 @@ namespace BetterDefines.Editor
                 }
 
                 DrawPlatformToggles(rect, defineProp.stringValue);
-                DrawActionButton(rect);
+                DrawActionButton(rect, defineProp.stringValue);
             };
             return list;
         }
@@ -56,19 +53,35 @@ namespace BetterDefines.Editor
 
         private static Rect GetPlatformToggleRect(Rect rect, float singleToggleWidth, int index)
         {
-            var platformsXStartPos = rect.x + rect.width * 0.23f;
-            return new Rect(platformsXStartPos + index * singleToggleWidth, rect.y, singleToggleWidth, EditorGUIUtility.singleLineHeight);
+            var platformsXStartPos = rect.x + rect.width*0.23f;
+            return new Rect(platformsXStartPos + index*singleToggleWidth, rect.y, singleToggleWidth, EditorGUIUtility.singleLineHeight);
         }
 
-        private static void DrawActionButton(Rect rect)
+        #region action_context_menu
+        private const string REMOVE_FROM_ALL_ACTION_ID = "REMOVE_FROM_ALL";
+        private const string ENABLE_SELECTED_ACTION_ID = "ENABLE_SELECTED";
+        private const string ADD_TO_ALL_ACTION_ID = "ADD_TO_ALL";
+
+        private class ActionParams
         {
-            var xPos = rect.x + rect.width * 0.95f;
+            public string Define;
+            public string Id;
+        }
+
+        private static void DrawActionButton(Rect rect, string define)
+        {
+            var xPos = rect.x + rect.width*0.95f;
             var width = rect.width*0.05f;
             GUI.color = Color.green;
             if (GUI.Button(new Rect(xPos, rect.y, width, EditorGUIUtility.singleLineHeight), "+"))
             {
                 var menu = new GenericMenu();
-                menu.AddItem(new GUIContent("Remove From All Platfroms"), false, ActionClickHandler, "DELETE_ALL");
+                menu.AddItem(new GUIContent("Remove From All Platforms"), false, ActionClickHandler,
+                    new ActionParams {Id = REMOVE_FROM_ALL_ACTION_ID, Define = define});
+                menu.AddItem(new GUIContent("Enable Only For Selected Platforms"), false, ActionClickHandler,
+                    new ActionParams {Id = ENABLE_SELECTED_ACTION_ID, Define = define});
+                menu.AddItem(new GUIContent("Add to All Platforms"), false, ActionClickHandler,
+                    new ActionParams {Id = ENABLE_SELECTED_ACTION_ID, Define = define});
                 menu.ShowAsContext();
             }
             GUI.color = Color.white;
@@ -76,11 +89,23 @@ namespace BetterDefines.Editor
 
         private static void ActionClickHandler(object target)
         {
-            var data = (string) target;
-            if (data == "DELETE_ALL")
+            var data = (ActionParams) target;
+            switch (data.Id)
             {
-
+                case REMOVE_FROM_ALL_ACTION_ID:
+                    BetterDefinesUtils.RemoveDefineFromAll(data.Define);
+                    break;
+                case ADD_TO_ALL_ACTION_ID:
+                    // TODO
+                    break;
+                case ENABLE_SELECTED_ACTION_ID:
+                    BetterDefinesUtils.AddDefineToAll(data.Define);
+                    break;
+                default:
+                    Debug.LogError("Id not present");
+                    break;
             }
         }
+        #endregion
     }
 }
