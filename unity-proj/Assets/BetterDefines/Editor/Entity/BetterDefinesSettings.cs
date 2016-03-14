@@ -32,6 +32,12 @@ namespace BetterDefines.Editor.Entity
                 throw new InvalidOperationException("Incorrect platform platformId: " + platformId);
             }
 
+            if (EnabledPlatformsGlobal.SingleOrDefault(x => x.PlatformId == platformId) != null)
+            {
+                return EnabledPlatformsGlobal.Single(x => x.PlatformId == platformId);
+            }
+            var toAdd = new PlatformEnabledState(platformId, false);
+            EnabledPlatformsGlobal.Add(toAdd);
             return EnabledPlatformsGlobal.Single(x => x.PlatformId == platformId);
         }
 

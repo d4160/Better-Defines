@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using BetterDefines.Editor.Entity;
 using UnityEditor;
 using UnityEngine;
@@ -15,7 +14,7 @@ namespace BetterDefines.Editor
         public const string STANDALONE_PLATFORM_ID = "Standalone";
         public const string ANDROID_PLATFORM_ID = "Android";
         public const string IOS_PLATFORM_ID = "iPhone";
-        // TODO tv os
+        public const string TV_OS_PLATFORM_ID = "tvOS";
         public const string BLACKBERRY_PLATFORM_ID = "BlackBerry";
         public const string TIZEN_PLATFORM_ID = "Tizen";
         public const string XBOX360_PLATFORM_ID = "XBox360";
@@ -41,7 +40,7 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadPlatformIcon(STANDALONE_PLATFORM_ID)),
                 new BuildPlatform("Android", ANDROID_PLATFORM_ID, true, LoadPlatformIcon(ANDROID_PLATFORM_ID)),
                 new BuildPlatform("iOS", IOS_PLATFORM_ID, true, LoadPlatformIcon(IOS_PLATFORM_ID)),
-                // TODO tv os
+                new BuildPlatform("tvOS", TV_OS_PLATFORM_ID, true, LoadPlatformIcon(TV_OS_PLATFORM_ID)),
                 new BuildPlatform("BlackBerry", BLACKBERRY_PLATFORM_ID, true, LoadPlatformIcon(BLACKBERRY_PLATFORM_ID)),
                 new BuildPlatform("Tizen", TIZEN_PLATFORM_ID, true, LoadPlatformIcon(TIZEN_PLATFORM_ID)),
                 new BuildPlatform("Xbox 360", XBOX360_PLATFORM_ID, true, LoadPlatformIcon(XBOX360_PLATFORM_ID)),
@@ -59,22 +58,32 @@ namespace BetterDefines.Editor
             };
             _buildTargetGroups = new Dictionary<string, BuildTargetGroup>
             {
-                {STANDALONE_PLATFORM_ID, BuildTargetGroup.Standalone},
                 {WEB_PLAYER_PLATFORM_ID, BuildTargetGroup.WebPlayer},
+                {STANDALONE_PLATFORM_ID, BuildTargetGroup.Standalone},
+                {ANDROID_PLATFORM_ID, BuildTargetGroup.Android},
                 {IOS_PLATFORM_ID, BuildTargetGroup.iOS},
+                {TV_OS_PLATFORM_ID, BuildTargetGroup.tvOS},
 #if !UNITY_5
                 { IOS_PLATFORM_ID, BuildTargetGroup.iPhone },
 #endif
-                {ANDROID_PLATFORM_ID, BuildTargetGroup.Android},
                 {BLACKBERRY_PLATFORM_ID, BuildTargetGroup.BlackBerry},
                 {TIZEN_PLATFORM_ID, BuildTargetGroup.Tizen},
                 {XBOX360_PLATFORM_ID, BuildTargetGroup.XBOX360},
                 {XBOX_ONE_PLATFORM_ID, BuildTargetGroup.XboxOne},
-                {PS3_PLATFORM_ID, BuildTargetGroup.PS3}
-
-
-                // TODO Finish
+                {PS3_PLATFORM_ID, BuildTargetGroup.PS3},
+                {PS_VITA_PLATFORM_ID, BuildTargetGroup.PSP2},
+                {PS4_PLATFORM_ID, BuildTargetGroup.PS4},
+                {WIIU_PLATFORM_ID, BuildTargetGroup.WiiU},
+                {WINDOWS_STORE_PLATFORM_ID, BuildTargetGroup.WSA},
+                {WEB_GL_PLATFORM_ID, BuildTargetGroup.WebGL},
+                {SAMSUNG_TV_PLATFORM_ID, BuildTargetGroup.SamsungTV},
+                {NINTENDO_3DS_PLATFORM_ID, BuildTargetGroup.Nintendo3DS}
             };
+        }
+
+        private static void InitBuildtTargetGroupsDic()
+        {
+            
         }
 
         public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
