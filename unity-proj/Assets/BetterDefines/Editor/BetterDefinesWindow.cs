@@ -1,5 +1,4 @@
-﻿using System.CodeDom.Compiler;
-using BetterDefines.Editor.Entity;
+﻿using BetterDefines.Editor.Entity;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -8,13 +7,12 @@ namespace BetterDefines.Editor
 {
     public class BetterDefinesWindow : EditorWindow
     {
+        private string addDefineText = "NEW_DEFINE_SCRIPTING_SYMBOL";
         private bool drawMainDefines = true;
         private ReorderableList list;
-        private SerializedObject settingsSerializedObject;
 
         private Vector2 scrollPos;
-
-        private string addDefineText = "NEW_DEFINE_SCRIPTING_SYMBOL";
+        private SerializedObject settingsSerializedObject;
 
         [MenuItem("Window/Better Defines")]
         private static void Init()
@@ -29,6 +27,11 @@ namespace BetterDefines.Editor
             window.Show();
         }
 
+        private void OnEnable()
+        {
+            LoadSettings();
+        }
+
         private void LoadSettings()
         {
             settingsSerializedObject = new SerializedObject(BetterDefinesSettings.Instance);
@@ -37,13 +40,10 @@ namespace BetterDefines.Editor
 
         private void OnGUI()
         {
+            EditorGUI.BeginChangeCheck();
+            settingsSerializedObject.Update();
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
             DrawTopSettingsTabs();
-            if (settingsSerializedObject == null)
-            {
-                LoadSettings();
-            }
-            settingsSerializedObject.Update();
             if (drawMainDefines)
             {
                 DrawAddDefine();
@@ -55,7 +55,10 @@ namespace BetterDefines.Editor
             }
             EditorGUILayout.EndScrollView();
             settingsSerializedObject.ApplyModifiedProperties();
-            AssetDatabase.Refresh();
+            if (EditorGUI.EndChangeCheck())
+            {
+                AssetDatabase.SaveAssets();
+            }
         }
 
         private void DrawAddDefine()
@@ -64,9 +67,9 @@ namespace BetterDefines.Editor
             EditorGUILayout.BeginHorizontal();
             addDefineText = EditorGUILayout.TextField(addDefineText);
 
-            bool isEmpty = string.IsNullOrEmpty(addDefineText);
-            bool isNameValid = addDefineText.IsValidDefineName();
-            bool isAlreadyAdded = BetterDefinesSettings.Instance.IsDefinePresent(addDefineText);
+            var isEmpty = string.IsNullOrEmpty(addDefineText);
+            var isNameValid = addDefineText.IsValidDefineName();
+            var isAlreadyAdded = BetterDefinesSettings.Instance.IsDefinePresent(addDefineText);
 
             GUI.enabled = !isEmpty && isNameValid && !isAlreadyAdded;
             if (GUILayout.Button("ADD"))
@@ -92,7 +95,7 @@ namespace BetterDefines.Editor
 
             // disable all by default
             var defineSettings = customDefine.FindPropertyRelative("StatesForPlatforms");
-            for (int i = 0; i < defineSettings.arraySize; i++)
+            for (var i = 0; i < defineSettings.arraySize; i++)
             {
                 defineSettings.GetArrayElementAtIndex(i).FindPropertyRelative("IsEnabled").boolValue = true;
             }

@@ -105,7 +105,7 @@ MonoBehaviour:
   - Define: ssaaa
     StatesForPlatforms:
     - PlatformId: Standalone
-      IsEnabled: 1
+      IsEnabled: 0
     - PlatformId: XBox360
       IsEnabled: 1
     - PlatformId: XboxOne
@@ -201,7 +201,7 @@ MonoBehaviour:
     - PlatformId: XboxOne
       IsEnabled: 1
     - PlatformId: iPhone
-      IsEnabled: 1
+      IsEnabled: 0
     - PlatformId: Android
       IsEnabled: 1
     - PlatformId: WebGL
@@ -252,6 +252,36 @@ MonoBehaviour:
       IsEnabled: 1
     - PlatformId: N3DS
       IsEnabled: 1
+  - Define: NEW_DEFINE_SCRIPTING_SYMBOL
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: XBox360
+      IsEnabled: 1
+    - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 0
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: WebGL
+      IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 1
+    - PlatformId: N3DS
+      IsEnabled: 1
   EnabledPlatformsGlobal:
   - PlatformId: Standalone
     IsEnabled: 1
@@ -264,9 +294,9 @@ MonoBehaviour:
   - PlatformId: BlackBerry
     IsEnabled: 1
   - PlatformId: Tizen
-    IsEnabled: 1
+    IsEnabled: 0
   - PlatformId: XBox360
-    IsEnabled: 1
+    IsEnabled: 0
   - PlatformId: XboxOne
     IsEnabled: 1
   - PlatformId: PS3
@@ -287,3 +317,5 @@ MonoBehaviour:
     IsEnabled: 0
   - PlatformId: N3DS
     IsEnabled: 1
+  - PlatformId: tvOS
+    IsEnabled: 0
