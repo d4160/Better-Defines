@@ -24,13 +24,8 @@ namespace BetterDefines.Editor
                 var element = list.serializedProperty.GetArrayElementAtIndex(index);
                 var defineProp = element.FindPropertyRelative("Define");
 
-                EditorGUI.BeginChangeCheck();
                 EditorGUI.SelectableLabel(new Rect(rect.x, rect.y, rect.width*0.25f, EditorGUIUtility.singleLineHeight),
                     defineProp.stringValue);
-                if (EditorGUI.EndChangeCheck())
-                {
-                    defineProp.stringValue = defineProp.stringValue;
-                }
 
                 DrawPlatformToggles(rect, defineProp.stringValue);
                 DrawActionButton(rect, defineProp.stringValue);

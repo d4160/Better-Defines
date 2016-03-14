@@ -12,6 +12,8 @@ namespace BetterDefines.Editor
         private ReorderableList list;
         private SerializedObject settingsSerializedObject;
 
+        private Vector2 scrollPos;
+
         private string addDefineText = "NEW_DEFINE_SCRIPTING_SYMBOL";
 
         [MenuItem("Window/Better Defines")]
@@ -35,6 +37,7 @@ namespace BetterDefines.Editor
 
         private void OnGUI()
         {
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
             DrawTopSettingsTabs();
             if (settingsSerializedObject == null)
             {
@@ -50,7 +53,9 @@ namespace BetterDefines.Editor
             {
                 DrawPreferences();
             }
+            EditorGUILayout.EndScrollView();
             settingsSerializedObject.ApplyModifiedProperties();
+            AssetDatabase.Refresh();
         }
 
         private void DrawAddDefine()

@@ -34,7 +34,13 @@ namespace BetterDefines.Editor
 
         static PlatformUtils()
         {
-            _allBuildPlatforms = new List<BuildPlatform>
+            _allBuildPlatforms = InitBuildPlatforms();
+            _buildTargetGroups = InitBuildTargetGroupsDic();
+        }
+
+        private static List<BuildPlatform> InitBuildPlatforms()
+        {
+            return new List<BuildPlatform>
             {
                 new BuildPlatform("Web Player", WEB_PLAYER_PLATFORM_ID, true, LoadPlatformIcon(WEB_PLAYER_PLATFORM_ID)),
                 new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadPlatformIcon(STANDALONE_PLATFORM_ID)),
@@ -56,7 +62,11 @@ namespace BetterDefines.Editor
                 new BuildPlatform("Samsung TV", SAMSUNG_TV_PLATFORM_ID, true, LoadPlatformIcon(SAMSUNG_TV_PLATFORM_ID)),
                 new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadPlatformIcon(NINTENDO_3DS_PLATFORM_ID))
             };
-            _buildTargetGroups = new Dictionary<string, BuildTargetGroup>
+        }
+
+        private static Dictionary<string, BuildTargetGroup> InitBuildTargetGroupsDic()
+        {
+            return new Dictionary<string, BuildTargetGroup>
             {
                 {WEB_PLAYER_PLATFORM_ID, BuildTargetGroup.WebPlayer},
                 {STANDALONE_PLATFORM_ID, BuildTargetGroup.Standalone},
@@ -81,11 +91,6 @@ namespace BetterDefines.Editor
             };
         }
 
-        private static void InitBuildtTargetGroupsDic()
-        {
-            
-        }
-
         public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
         {
             get { return _allBuildPlatforms.AsReadOnly(); }
@@ -103,9 +108,6 @@ namespace BetterDefines.Editor
                 throw new ArgumentException("Invalid platform id");
             }
 
-            Debug.Log(platformId);
-
-            // TODO return required value
             return _buildTargetGroups[platformId];
         }
     }
