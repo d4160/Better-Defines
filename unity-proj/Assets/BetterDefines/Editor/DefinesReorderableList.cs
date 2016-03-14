@@ -83,7 +83,7 @@ namespace BetterDefines.Editor
                 menu.AddItem(new GUIContent("Apply Configuration"), false, ActionClickHandler,
                     new ActionParams {Id = APPLY_CONFIG_ACTION_ID, Define = define});
                 menu.AddItem(new GUIContent("Add to All Platforms"), false, ActionClickHandler,
-                    new ActionParams {Id = APPLY_CONFIG_ACTION_ID, Define = define});
+                    new ActionParams {Id = ADD_TO_ALL_ACTION_ID, Define = define});
                 menu.AddItem(new GUIContent("Remove From All Platforms"), false, ActionClickHandler,
                     new ActionParams {Id = REMOVE_FROM_ALL_ACTION_ID, Define = define});
                 menu.ShowAsContext();
