@@ -42,7 +42,7 @@ namespace BetterDefines.Editor
         {
             var settings = BetterDefinesSettings.Instance;
             var platformsWidth = rect.width*0.7f;
-            var filteredPlatforms = EditorUtils.AllBuildPlatforms.Where(x => settings.GetGlobalPlatformState(x.Id).IsEnabled).ToList();
+            var filteredPlatforms = PlatformUtils.AllBuildPlatforms.Where(x => settings.GetGlobalPlatformState(x.Id).IsEnabled).ToList();
             var singleToggleWidth = platformsWidth/filteredPlatforms.Count;
 
             for (var i = 0; i < filteredPlatforms.Count; i++)
@@ -97,7 +97,7 @@ namespace BetterDefines.Editor
             switch (data.Id)
             {
                 case APPLY_CONFIG_ACTION_ID:
-                    // TODO Implement
+                    ApplySelectedConfig(data.Define);
                     break;
                 case ADD_TO_ALL_ACTION_ID:
                     BetterDefinesUtils.AddDefineToAll(data.Define);
@@ -108,6 +108,16 @@ namespace BetterDefines.Editor
                 default:
                     Debug.LogError("Id not present");
                     break;
+            }
+        }
+
+        private static void ApplySelectedConfig(string define)
+        {
+            var settings = BetterDefinesSettings.Instance;
+            foreach (var platformId in settings.GetGlobalUserEnabledPlatformIds())
+            {
+                var isEnabled = settings.GetDefineState(define, platformId);
+                BetterDefinesUtils.ToggleDefine(define, isEnabled, PlatformUtils.GetBuildTargetGroupById(platformId));
             }
         }
         #endregion

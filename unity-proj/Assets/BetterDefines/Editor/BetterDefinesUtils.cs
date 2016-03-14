@@ -1,41 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using BetterDefines.Editor.Entity;
 using UnityEditor;
+using UnityEngine;
 
 namespace BetterDefines.Editor
 {
     public static class BetterDefinesUtils
     {
+        /// <summary>
+        ///     Creates .asset file of the specified <see cref="UnityEngine.ScriptableObject" />
+        /// </summary>
+        public static void CreateAsset<T>(string baseName, string forcedPath = "") where T : ScriptableObject
+        {
+            if (baseName.Contains("/"))
+                throw new ArgumentException("Base name should not contain slashes");
+
+            var asset = ScriptableObject.CreateInstance<T>();
+
+            string path;
+            if (!string.IsNullOrEmpty(forcedPath))
+            {
+                path = forcedPath;
+                Directory.CreateDirectory(forcedPath);
+            }
+            else
+            {
+                path = AssetDatabase.GetAssetPath(Selection.activeObject);
+
+                if (string.IsNullOrEmpty(path))
+                {
+                    path = "Assets";
+                }
+                else if (Path.GetExtension(path) != string.Empty)
+                {
+                    path = path.Replace(Path.GetFileName(path), string.Empty);
+                }
+            }
+
+            var assetPathAndName = AssetDatabase.GenerateUniqueAssetPath(path + "/" + baseName + ".asset");
+
+            AssetDatabase.CreateAsset(asset, assetPathAndName);
+            AssetDatabase.SaveAssets();
+            EditorUtility.FocusProjectWindow();
+            Selection.activeObject = asset;
+        }
+
+        #region defines
         public static void ToggleDefine(string define, bool enable, params BuildTargetGroup[] supportedPlatforms)
         {
             foreach (var targetPlatform in supportedPlatforms)
             {
-                var scriptDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(targetPlatform);
-                var flags = new List<string>(scriptDefines.Split(';'));
+                ToggleDefine(define, enable, targetPlatform);
+            }
+        }
 
-                if (flags.Contains(define))
-                {
-                    if (!enable)
-                    {
-                        flags.Remove(define);
-                    }
-                }
-                else
-                {
-                    if (enable)
-                    {
-                        flags.Add(define);
-                    }
-                }
+        public static void ToggleDefine(string define, bool enable, BuildTargetGroup targetPlatform)
+        {
+            var scriptDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(targetPlatform);
+            var flags = new List<string>(scriptDefines.Split(';'));
 
-                var result = string.Join(";", flags.ToArray());
-
-                if (scriptDefines != result)
+            if (flags.Contains(define))
+            {
+                if (!enable)
                 {
-                    PlayerSettings.SetScriptingDefineSymbolsForGroup(targetPlatform, result);
+                    flags.Remove(define);
                 }
+            }
+            else
+            {
+                if (enable)
+                {
+                    flags.Add(define);
+                }
+            }
+
+            var result = string.Join(";", flags.ToArray());
+
+            if (scriptDefines != result)
+            {
+                PlayerSettings.SetScriptingDefineSymbolsForGroup(targetPlatform, result);
             }
         }
 
@@ -51,9 +96,10 @@ namespace BetterDefines.Editor
 
         private static BuildTargetGroup[] GetAllAvailablePlatforms()
         {
-            var allPlatforms = Enum.GetValues(typeof(BuildTargetGroup)).Cast<BuildTargetGroup>().ToList();
+            var allPlatforms = Enum.GetValues(typeof (BuildTargetGroup)).Cast<BuildTargetGroup>().ToList();
             allPlatforms.Remove(BuildTargetGroup.Unknown);
             return allPlatforms.ToArray();
         }
+        #endregion
     }
 }

@@ -34,6 +34,11 @@ namespace BetterDefines.Editor.Entity
 
             return EnabledPlatformsGlobal.Single(x => x.PlatformId == platformId);
         }
+
+        public List<string> GetGlobalUserEnabledPlatformIds()
+        {
+            return EnabledPlatformsGlobal.Where(x => x.IsEnabled).ToList().ConvertAll(x => x.PlatformId);
+        } 
         #endregion
 
         #region defines

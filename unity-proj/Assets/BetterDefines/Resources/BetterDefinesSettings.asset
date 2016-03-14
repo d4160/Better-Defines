@@ -12,369 +12,245 @@ MonoBehaviour:
   m_Name: BetterDefinesSettings
   m_EditorClassIdentifier: 
   Defines:
-  - Define: TEST
+  - Define: NO_GOOGLE_PLAY
     StatesForPlatforms:
     - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 0
-    - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: Tizen
-      IsEnabled: 0
-    - PlatformId: BlackBerry
-      IsEnabled: 0
-    - PlatformId: XBox360
-      IsEnabled: 0
-    - PlatformId: XboxOne
-      IsEnabled: 0
-  - Define: TEST_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 0
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 0
-    - PlatformId: PS3
-      IsEnabled: 0
-    - PlatformId: PSP2
-      IsEnabled: 0
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: Tizen
-      IsEnabled: 0
-    - PlatformId: BlackBerry
-      IsEnabled: 0
-    - PlatformId: XBox360
-      IsEnabled: 0
-    - PlatformId: XboxOne
-      IsEnabled: 0
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 0
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 0
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 0
-    - PlatformId: PSP2
-      IsEnabled: 0
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 0
-    - PlatformId: XBox360
-      IsEnabled: 0
-    - PlatformId: XboxOne
-      IsEnabled: 1
-  - Define: TEST_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 0
-    - PlatformId: Android
-      IsEnabled: 0
-    - PlatformId: PS3
-      IsEnabled: 0
-    - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-    - PlatformId: XBox360
-      IsEnabled: 0
-    - PlatformId: XboxOne
-      IsEnabled: 1
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 0
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
-      IsEnabled: 0
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-    - PlatformId: XBox360
-      IsEnabled: 1
-    - PlatformId: XboxOne
-      IsEnabled: 0
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 0
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: Tizen
-      IsEnabled: 0
-    - PlatformId: BlackBerry
-      IsEnabled: 0
-    - PlatformId: XBox360
-      IsEnabled: 0
-    - PlatformId: XboxOne
-      IsEnabled: 0
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-    - PlatformId: XBox360
-      IsEnabled: 0
-    - PlatformId: XboxOne
-      IsEnabled: 0
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: BlackBerry
       IsEnabled: 1
     - PlatformId: XBox360
       IsEnabled: 1
     - PlatformId: XboxOne
       IsEnabled: 1
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
     - PlatformId: iPhone
       IsEnabled: 1
     - PlatformId: Android
+      IsEnabled: 0
+    - PlatformId: WebGL
       IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 0
+    - PlatformId: Web
+      IsEnabled: 0
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 0
     - PlatformId: PS3
       IsEnabled: 1
     - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 1
+      IsEnabled: 0
     - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: N3DS
       IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: BlackBerry
+  - Define: CUSTOM_DEFINE
+    StatesForPlatforms:
+    - PlatformId: Standalone
       IsEnabled: 1
     - PlatformId: XBox360
       IsEnabled: 1
     - PlatformId: XboxOne
       IsEnabled: 1
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
     - PlatformId: iPhone
       IsEnabled: 1
     - PlatformId: Android
       IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
+    - PlatformId: WebGL
       IsEnabled: 1
     - PlatformId: WiiU
       IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 0
     - PlatformId: BlackBerry
+      IsEnabled: 0
+    - PlatformId: Tizen
+      IsEnabled: 0
+    - PlatformId: PS3
+      IsEnabled: 0
+    - PlatformId: PSP2
+      IsEnabled: 0
+    - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: N3DS
+      IsEnabled: 0
+  - Define: dawdw
+    StatesForPlatforms:
+    - PlatformId: Standalone
       IsEnabled: 1
     - PlatformId: XBox360
       IsEnabled: 1
     - PlatformId: XboxOne
       IsEnabled: 1
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
     - PlatformId: iPhone
       IsEnabled: 1
     - PlatformId: Android
+      IsEnabled: 0
+    - PlatformId: WebGL
       IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 0
     - PlatformId: PS3
       IsEnabled: 1
     - PlatformId: PSP2
       IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 1
     - PlatformId: Metro
       IsEnabled: 1
-    - PlatformId: Tizen
+    - PlatformId: N3DS
       IsEnabled: 1
-    - PlatformId: BlackBerry
+  - Define: ssaaa
+    StatesForPlatforms:
+    - PlatformId: Standalone
       IsEnabled: 1
     - PlatformId: XBox360
       IsEnabled: 1
     - PlatformId: XboxOne
       IsEnabled: 1
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
     - PlatformId: iPhone
       IsEnabled: 1
     - PlatformId: Android
       IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
+    - PlatformId: WebGL
       IsEnabled: 1
     - PlatformId: WiiU
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-    - PlatformId: XBox360
-      IsEnabled: 1
-    - PlatformId: XboxOne
-      IsEnabled: 1
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-    - PlatformId: XBox360
-      IsEnabled: 1
-    - PlatformId: XboxOne
-      IsEnabled: 1
-  - Define: TEST_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW_NEW
-    StatesForPlatforms:
-    - PlatformId: Standalone
       IsEnabled: 0
     - PlatformId: Web
       IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
+    - PlatformId: BlackBerry
+      IsEnabled: 0
+    - PlatformId: Tizen
       IsEnabled: 1
     - PlatformId: PS3
       IsEnabled: 1
     - PlatformId: PSP2
       IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: N3DS
+      IsEnabled: 0
+  - Define: HHH
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: XBox360
+      IsEnabled: 0
+    - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: WebGL
+      IsEnabled: 1
     - PlatformId: WiiU
       IsEnabled: 1
-    - PlatformId: Metro
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: BlackBerry
       IsEnabled: 1
     - PlatformId: Tizen
       IsEnabled: 1
-    - PlatformId: BlackBerry
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: N3DS
+      IsEnabled: 0
+  - Define: ssaaazzz
+    StatesForPlatforms:
+    - PlatformId: Standalone
       IsEnabled: 1
     - PlatformId: XBox360
       IsEnabled: 1
     - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 0
+    - PlatformId: Android
+      IsEnabled: 0
+    - PlatformId: WebGL
+      IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 0
+    - PlatformId: BlackBerry
+      IsEnabled: 0
+    - PlatformId: Tizen
+      IsEnabled: 0
+    - PlatformId: PS3
+      IsEnabled: 0
+    - PlatformId: PSP2
+      IsEnabled: 0
+    - PlatformId: Metro
+      IsEnabled: 0
+    - PlatformId: N3DS
+      IsEnabled: 0
+  - Define: MOBILE
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: XBox360
+      IsEnabled: 0
+    - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: WebGL
+      IsEnabled: 0
+    - PlatformId: WiiU
+      IsEnabled: 0
+    - PlatformId: Web
+      IsEnabled: 0
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 0
+    - PlatformId: PS3
+      IsEnabled: 0
+    - PlatformId: PSP2
+      IsEnabled: 0
+    - PlatformId: Metro
+      IsEnabled: 1
+    - PlatformId: N3DS
+      IsEnabled: 0
+  - Define: gggg
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: XBox360
+      IsEnabled: 1
+    - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: WebGL
+      IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 1
+    - PlatformId: N3DS
       IsEnabled: 1
   EnabledPlatformsGlobal:
   - PlatformId: Standalone
@@ -386,15 +262,15 @@ MonoBehaviour:
   - PlatformId: Android
     IsEnabled: 1
   - PlatformId: BlackBerry
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: Tizen
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: XBox360
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: XboxOne
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: PS3
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: PSP2
     IsEnabled: 0
   - PlatformId: PS4
@@ -402,12 +278,12 @@ MonoBehaviour:
   - PlatformId: StandaloneGLESEmu
     IsEnabled: 0
   - PlatformId: WiiU
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: Metro
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: WebGL
     IsEnabled: 0
   - PlatformId: SamsungTV
     IsEnabled: 0
   - PlatformId: N3DS
-    IsEnabled: 0
+    IsEnabled: 1

@@ -15,7 +15,7 @@ namespace BetterDefines.Editor
 
         public static bool IsValidBuildPlatformId(this string platformId)
         {
-            return !String.IsNullOrEmpty(platformId) && EditorUtils.AllBuildPlatforms.Any(x => x.Id == platformId);
+            return !String.IsNullOrEmpty(platformId) && PlatformUtils.AllBuildPlatforms.Any(x => x.Id == platformId);
         }
     }
 }
