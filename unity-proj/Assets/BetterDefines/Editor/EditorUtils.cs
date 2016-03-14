@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using BetterDefines.Editor.Entity;
 using UnityEditor;
 using UnityEngine;
@@ -31,6 +30,7 @@ namespace BetterDefines.Editor
         public const string NINTENDO_3DS_PLATFORM_ID = "N3DS";
 
         private static readonly List<BuildPlatform> _allBuildPlatforms;
+        private static readonly Dictionary<string, BuildTargetGroup> _buildTargetGroups;
 
         public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
         {
@@ -59,11 +59,23 @@ namespace BetterDefines.Editor
                 new BuildPlatform("Samsung TV", SAMSUNG_TV_PLATFORM_ID, true, LoadIcon(SAMSUNG_TV_PLATFORM_ID)),
                 new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadIcon(NINTENDO_3DS_PLATFORM_ID))
             };
-        }
+            _buildTargetGroups = new Dictionary<string, BuildTargetGroup>
+            {
+                { WINDOWS_STORE_PLATFORM_ID, BuildTargetGroup.Standalone },
+                { WEB_PLAYER_PLATFORM_ID, BuildTargetGroup.WebPlayer },
+                { IOS_PLATFORM_ID, BuildTargetGroup.iOS },
+#if !UNITY_5
+                { IOS_PLATFORM_ID, BuildTargetGroup.iPhone },
+#endif
+                { ANDROID_PLATFORM_ID, BuildTargetGroup.Android },
+                { BLACKBERRY_PLATFORM_ID, BuildTargetGroup.BlackBerry },
+                { TIZEN_PLATFORM_ID, BuildTargetGroup.Tizen },
+                { XBOX360_PLATFORM_ID, BuildTargetGroup.XBOX360 },
+                { XBOX_ONE_PLATFORM_ID, BuildTargetGroup.XboxOne }
 
-        public static bool IsValidBuildPlatformId(this string platformId)
-        {
-            return !string.IsNullOrEmpty(platformId) && AllBuildPlatforms.Any(x => x.Id == platformId);
+
+                // TODO Finish
+            };
         }
 
         private static Texture2D LoadIcon(string iconId)
@@ -71,7 +83,18 @@ namespace BetterDefines.Editor
             return EditorGUIUtility.IconContent(string.Format("BuildSettings.{0}.Small", iconId)).image as Texture2D;
         }
 
-        #region storage
+        public static BuildTargetGroup GetBuildTargetGroupById(string platformId)
+        {
+            if (!platformId.IsValidBuildPlatformId())
+            {
+                throw new ArgumentException("Invalid platform id");
+            }
+
+            // TODO return required value
+            return _buildTargetGroups[platformId];
+        }
+
+#region storage
         /// <summary>
         ///     Creates .asset file of the specified <see cref="UnityEngine.ScriptableObject" />
         /// </summary>
@@ -110,5 +133,5 @@ namespace BetterDefines.Editor
             Selection.activeObject = asset;
         }
     }
-    #endregion
+#endregion
 }
