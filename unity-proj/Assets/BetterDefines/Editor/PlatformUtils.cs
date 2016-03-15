@@ -1,4 +1,9 @@
-﻿using System;
+﻿#if UNITY_5_3 && (!UNITY_5_3_0 && !UNITY_5_3_1 && !UNITY_5_3_2)
+#define UNITY_PRE_5_3_2
+#endif
+
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using BetterDefines.Editor.Entity;
@@ -25,23 +30,20 @@ namespace BetterDefines.Editor
         public const string WINDOWS_STORE_PLATFORM_ID = "Metro";
         public const string WEB_GL_PLATFORM_ID = "WebGL";
         public const string SAMSUNG_TV_PLATFORM_ID = "SamsungTV";
-
-#if UNITY_5_3_2
         public const string NINTENDO_3DS_PLATFORM_ID = "N3DS";
         public const string TV_OS_PLATFORM_ID = "tvOS";
         public const string WIIU_PLATFORM_ID = "WiiU";
-#endif
 
-        private static readonly List<BuildPlatform> _allBuildPlatforms;
+        private static readonly List<BuildPlatform> _allAvailableBuildPlatforms;
         private static readonly Dictionary<string, BuildTargetGroup> _buildTargetGroups;
 
         static PlatformUtils()
         {
-            _allBuildPlatforms = InitBuildPlatforms();
+            _allAvailableBuildPlatforms = InitAvailableBuildPlatforms();
             _buildTargetGroups = InitBuildTargetGroupsDic();
         }
 
-        private static List<BuildPlatform> InitBuildPlatforms()
+        private static List<BuildPlatform> InitAvailableBuildPlatforms()
         {
             return new List<BuildPlatform>
             {
@@ -49,9 +51,11 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadPlatformIcon(STANDALONE_PLATFORM_ID)),
                 new BuildPlatform("Android", ANDROID_PLATFORM_ID, true, LoadPlatformIcon(ANDROID_PLATFORM_ID)),
                 new BuildPlatform("iOS", IOS_PLATFORM_ID, true, LoadPlatformIcon(IOS_PLATFORM_ID)),
-#if UNITY_5_3_2
+
+ #if UNITY_PRE_5_3_2
                 new BuildPlatform("tvOS", TV_OS_PLATFORM_ID, true, LoadPlatformIcon(TV_OS_PLATFORM_ID)),
 #endif
+
                 new BuildPlatform("BlackBerry", BLACKBERRY_PLATFORM_ID, true, LoadPlatformIcon(BLACKBERRY_PLATFORM_ID)),
                 new BuildPlatform("Tizen", TIZEN_PLATFORM_ID, true, LoadPlatformIcon(TIZEN_PLATFORM_ID)),
                 new BuildPlatform("Xbox 360", XBOX360_PLATFORM_ID, true, LoadPlatformIcon(XBOX360_PLATFORM_ID)),
@@ -61,7 +65,7 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PS4", PS4_PLATFORM_ID, true, LoadPlatformIcon(PS4_PLATFORM_ID)),
                 // TODO GLES Emulator - what is this?
                 //new BuildPlatform("GLES Emulator", GLESEMU_PLATFORM_ID, true, LoadPlatformIcon(GLESEMU_PLATFORM_ID)),
-#if UNITY_5_3_2
+#if UNITY_PRE_5_3_2
                 new BuildPlatform("Wii U", WIIU_PLATFORM_ID, true, LoadPlatformIcon(WIIU_PLATFORM_ID)),
                 new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadPlatformIcon(NINTENDO_3DS_PLATFORM_ID)),
 #endif
@@ -103,7 +107,7 @@ namespace BetterDefines.Editor
 
         public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
         {
-            get { return _allBuildPlatforms.AsReadOnly(); }
+            get { return _allAvailableBuildPlatforms.AsReadOnly(); }
         }
 
         private static Texture2D LoadPlatformIcon(string iconId)
