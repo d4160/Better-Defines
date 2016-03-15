@@ -46,6 +46,8 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: SamsungTV
       IsEnabled: 0
+    - PlatformId: WP8
+      IsEnabled: 1
   - Define: CUSTOM_DEFINE
     StatesForPlatforms:
     - PlatformId: Standalone
@@ -80,73 +82,7 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: SamsungTV
       IsEnabled: 0
-  - Define: dawdw
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 1
-    - PlatformId: XBox360
-      IsEnabled: 1
-    - PlatformId: XboxOne
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 0
-    - PlatformId: WebGL
-      IsEnabled: 0
-    - PlatformId: WiiU
-      IsEnabled: 1
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 0
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: N3DS
-      IsEnabled: 1
-    - PlatformId: PS4
-      IsEnabled: 0
-    - PlatformId: SamsungTV
-      IsEnabled: 0
-  - Define: ssaaa
-    StatesForPlatforms:
-    - PlatformId: Standalone
-      IsEnabled: 0
-    - PlatformId: XBox360
-      IsEnabled: 1
-    - PlatformId: XboxOne
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 1
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: WebGL
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Web
-      IsEnabled: 1
-    - PlatformId: BlackBerry
-      IsEnabled: 0
-    - PlatformId: Tizen
-      IsEnabled: 1
-    - PlatformId: PS3
-      IsEnabled: 1
-    - PlatformId: PSP2
-      IsEnabled: 1
-    - PlatformId: Metro
-      IsEnabled: 0
-    - PlatformId: N3DS
-      IsEnabled: 0
-    - PlatformId: PS4
-      IsEnabled: 0
-    - PlatformId: SamsungTV
+    - PlatformId: WP8
       IsEnabled: 0
   - Define: HHH
     StatesForPlatforms:
@@ -182,6 +118,8 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: SamsungTV
       IsEnabled: 0
+    - PlatformId: WP8
+      IsEnabled: 1
   - Define: ssaaazzz
     StatesForPlatforms:
     - PlatformId: Standalone
@@ -193,7 +131,7 @@ MonoBehaviour:
     - PlatformId: iPhone
       IsEnabled: 0
     - PlatformId: Android
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: WebGL
       IsEnabled: 0
     - PlatformId: WiiU
@@ -203,7 +141,7 @@ MonoBehaviour:
     - PlatformId: BlackBerry
       IsEnabled: 0
     - PlatformId: Tizen
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: PS3
       IsEnabled: 0
     - PlatformId: PSP2
@@ -216,50 +154,18 @@ MonoBehaviour:
       IsEnabled: 1
     - PlatformId: SamsungTV
       IsEnabled: 0
-  - Define: MOBILE
-    StatesForPlatforms:
-    - PlatformId: Standalone
+    - PlatformId: WP8
       IsEnabled: 1
-    - PlatformId: XBox360
-      IsEnabled: 0
-    - PlatformId: XboxOne
-      IsEnabled: 1
-    - PlatformId: iPhone
-      IsEnabled: 0
-    - PlatformId: Android
-      IsEnabled: 1
-    - PlatformId: WebGL
-      IsEnabled: 1
-    - PlatformId: WiiU
-      IsEnabled: 0
-    - PlatformId: Web
-      IsEnabled: 0
-    - PlatformId: BlackBerry
-      IsEnabled: 1
-    - PlatformId: Tizen
-      IsEnabled: 0
-    - PlatformId: PS3
-      IsEnabled: 0
-    - PlatformId: PSP2
-      IsEnabled: 0
-    - PlatformId: Metro
-      IsEnabled: 1
-    - PlatformId: N3DS
-      IsEnabled: 0
-    - PlatformId: PS4
-      IsEnabled: 0
-    - PlatformId: SamsungTV
-      IsEnabled: 0
-  - Define: NEW_DEFINE_SCRIPTING_SYMBOL
+  - Define: NEW_DEFINE_SCRIPTING_SYMBOLsss
     StatesForPlatforms:
     - PlatformId: Standalone
       IsEnabled: 1
     - PlatformId: XBox360
       IsEnabled: 1
     - PlatformId: XboxOne
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: iPhone
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: Android
       IsEnabled: 1
     - PlatformId: WebGL
@@ -273,7 +179,7 @@ MonoBehaviour:
     - PlatformId: Tizen
       IsEnabled: 1
     - PlatformId: PS3
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: PSP2
       IsEnabled: 1
     - PlatformId: Metro
@@ -281,8 +187,10 @@ MonoBehaviour:
     - PlatformId: N3DS
       IsEnabled: 1
     - PlatformId: PS4
-      IsEnabled: 0
+      IsEnabled: 1
     - PlatformId: SamsungTV
+      IsEnabled: 1
+    - PlatformId: WP8
       IsEnabled: 0
   - Define: gggg
     StatesForPlatforms:
@@ -318,6 +226,152 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: SamsungTV
       IsEnabled: 0
+    - PlatformId: WP8
+      IsEnabled: 0
+  - Define: sss
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: XBox360
+      IsEnabled: 1
+    - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: WebGL
+      IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 1
+    - PlatformId: N3DS
+      IsEnabled: 1
+    - PlatformId: PS4
+      IsEnabled: 1
+    - PlatformId: SamsungTV
+      IsEnabled: 1
+    - PlatformId: WP8
+      IsEnabled: 0
+  - Define: NEW_DEFINE_SCRIPTING_SYMBOLeee
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: XBox360
+      IsEnabled: 1
+    - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: WebGL
+      IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 1
+    - PlatformId: N3DS
+      IsEnabled: 1
+    - PlatformId: PS4
+      IsEnabled: 1
+    - PlatformId: SamsungTV
+      IsEnabled: 1
+    - PlatformId: WP8
+      IsEnabled: 1
+  - Define: NEW_DEFINE_SCRIPTING_SYMBOL
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: XBox360
+      IsEnabled: 1
+    - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: WebGL
+      IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 1
+    - PlatformId: N3DS
+      IsEnabled: 1
+    - PlatformId: PS4
+      IsEnabled: 1
+    - PlatformId: SamsungTV
+      IsEnabled: 1
+    - PlatformId: WP8
+      IsEnabled: 0
+  - Define: bbbb
+    StatesForPlatforms:
+    - PlatformId: Standalone
+      IsEnabled: 1
+    - PlatformId: XBox360
+      IsEnabled: 1
+    - PlatformId: XboxOne
+      IsEnabled: 1
+    - PlatformId: iPhone
+      IsEnabled: 1
+    - PlatformId: Android
+      IsEnabled: 1
+    - PlatformId: WebGL
+      IsEnabled: 1
+    - PlatformId: WiiU
+      IsEnabled: 1
+    - PlatformId: Web
+      IsEnabled: 1
+    - PlatformId: BlackBerry
+      IsEnabled: 1
+    - PlatformId: Tizen
+      IsEnabled: 1
+    - PlatformId: PS3
+      IsEnabled: 1
+    - PlatformId: PSP2
+      IsEnabled: 1
+    - PlatformId: Metro
+      IsEnabled: 1
+    - PlatformId: N3DS
+      IsEnabled: 1
+    - PlatformId: PS4
+      IsEnabled: 1
+    - PlatformId: SamsungTV
+      IsEnabled: 1
+    - PlatformId: WP8
+      IsEnabled: 0
   EnabledPlatformsGlobal:
   - PlatformId: Standalone
     IsEnabled: 1
@@ -328,13 +382,13 @@ MonoBehaviour:
   - PlatformId: Android
     IsEnabled: 1
   - PlatformId: BlackBerry
-    IsEnabled: 1
+    IsEnabled: 0
   - PlatformId: Tizen
     IsEnabled: 1
   - PlatformId: XBox360
     IsEnabled: 1
   - PlatformId: XboxOne
-    IsEnabled: 1
+    IsEnabled: 0
   - PlatformId: PS3
     IsEnabled: 1
   - PlatformId: PSP2
@@ -355,3 +409,5 @@ MonoBehaviour:
     IsEnabled: 1
   - PlatformId: tvOS
     IsEnabled: 0
+  - PlatformId: WP8
+    IsEnabled: 1
