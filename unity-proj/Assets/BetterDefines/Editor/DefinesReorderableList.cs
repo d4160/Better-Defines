@@ -37,7 +37,7 @@ namespace BetterDefines.Editor
         {
             var settings = BetterDefinesSettings.Instance;
             var platformsWidth = rect.width*0.7f;
-            var filteredPlatforms = PlatformUtils.AllBuildPlatforms.Where(x => settings.GetGlobalPlatformState(x.Id).IsEnabled).ToList();
+            var filteredPlatforms = PlatformUtils.AllAvailableBuildPlatforms.Where(x => settings.GetGlobalPlatformState(x.Id).IsEnabled).ToList();
             var singleToggleWidth = platformsWidth/filteredPlatforms.Count;
 
             for (var i = 0; i < filteredPlatforms.Count; i++)

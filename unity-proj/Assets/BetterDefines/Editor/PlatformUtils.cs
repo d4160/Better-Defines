@@ -1,7 +1,14 @@
-﻿#if UNITY_5_3 && (!UNITY_5_3_0 && !UNITY_5_3_1 && !UNITY_5_3_2)
+﻿#if UNITY_4_5 || UNITY_4_5 || UNITY_4_7
+#define UNITY_4
+#endif
+
+#if UNITY_5_3 && (!UNITY_5_3_0 && !UNITY_5_3_1 && !UNITY_5_3_2)
 #define UNITY_PRE_5_3_2
 #endif
 
+#if UNITY_5_0 || UNITY_5_1 || UNITY_5_2
+#define UNITY_PRE_5_3_0
+#endif
 
 using System;
 using System.Collections.Generic;
@@ -28,19 +35,20 @@ namespace BetterDefines.Editor
         public const string PS4_PLATFORM_ID = "PS4";
         public const string GLESEMU_PLATFORM_ID = "StandaloneGLESEmu";
         public const string WINDOWS_STORE_PLATFORM_ID = "Metro";
+        public const string WP8_PLATFORM_ID = "WP8";
         public const string WEB_GL_PLATFORM_ID = "WebGL";
         public const string SAMSUNG_TV_PLATFORM_ID = "SamsungTV";
         public const string NINTENDO_3DS_PLATFORM_ID = "N3DS";
         public const string TV_OS_PLATFORM_ID = "tvOS";
         public const string WIIU_PLATFORM_ID = "WiiU";
 
-        private static readonly List<BuildPlatform> _allAvailableBuildPlatforms;
-        private static readonly Dictionary<string, BuildTargetGroup> _buildTargetGroups;
+        private static readonly List<BuildPlatform> AvailableBuildPlatforms;
+        private static readonly Dictionary<string, BuildTargetGroup> BuildTargetGroups;
 
         static PlatformUtils()
         {
-            _allAvailableBuildPlatforms = InitAvailableBuildPlatforms();
-            _buildTargetGroups = InitBuildTargetGroupsDic();
+            AvailableBuildPlatforms = InitAvailableBuildPlatforms();
+            BuildTargetGroups = InitBuildTargetGroupsDic();
         }
 
         private static List<BuildPlatform> InitAvailableBuildPlatforms()
@@ -52,7 +60,7 @@ namespace BetterDefines.Editor
                 new BuildPlatform("Android", ANDROID_PLATFORM_ID, true, LoadPlatformIcon(ANDROID_PLATFORM_ID)),
                 new BuildPlatform("iOS", IOS_PLATFORM_ID, true, LoadPlatformIcon(IOS_PLATFORM_ID)),
 
- #if UNITY_PRE_5_3_2
+#if UNITY_PRE_5_3_2
                 new BuildPlatform("tvOS", TV_OS_PLATFORM_ID, true, LoadPlatformIcon(TV_OS_PLATFORM_ID)),
 #endif
 
@@ -70,6 +78,9 @@ namespace BetterDefines.Editor
                 new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadPlatformIcon(NINTENDO_3DS_PLATFORM_ID)),
 #endif
                 new BuildPlatform("Windows Store", WINDOWS_STORE_PLATFORM_ID, true, LoadPlatformIcon(WINDOWS_STORE_PLATFORM_ID)),
+#if UNITY_PRE_5_3_0
+                new BuildPlatform("Windows Phone 8", WP8_PLATFORM_ID, true, LoadPlatformIcon(WP8_PLATFORM_ID)),
+#endif
                 new BuildPlatform("WebGL", WEB_GL_PLATFORM_ID, true, LoadPlatformIcon(WEB_GL_PLATFORM_ID)),
                 new BuildPlatform("Samsung TV", SAMSUNG_TV_PLATFORM_ID, true, LoadPlatformIcon(SAMSUNG_TV_PLATFORM_ID)),
             };
@@ -82,16 +93,18 @@ namespace BetterDefines.Editor
                 {WEB_PLAYER_PLATFORM_ID, BuildTargetGroup.WebPlayer},
                 {STANDALONE_PLATFORM_ID, BuildTargetGroup.Standalone},
                 {ANDROID_PLATFORM_ID, BuildTargetGroup.Android},
-                {IOS_PLATFORM_ID, BuildTargetGroup.iOS},
-#if UNITY_5_3_2
+#if UNITY_PRE_5_3_2
                 {TV_OS_PLATFORM_ID, BuildTargetGroup.tvOS},
                 {NINTENDO_3DS_PLATFORM_ID, BuildTargetGroup.Nintendo3DS},
                 {WIIU_PLATFORM_ID, BuildTargetGroup.WiiU},
 #endif
 
-#if !UNITY_5
+#if UNITY_4
                 { IOS_PLATFORM_ID, BuildTargetGroup.iPhone },
+#else
+                {IOS_PLATFORM_ID, BuildTargetGroup.iOS},
 #endif
+
                 {BLACKBERRY_PLATFORM_ID, BuildTargetGroup.BlackBerry},
                 {TIZEN_PLATFORM_ID, BuildTargetGroup.Tizen},
                 {XBOX360_PLATFORM_ID, BuildTargetGroup.XBOX360},
@@ -101,13 +114,16 @@ namespace BetterDefines.Editor
                 {PS4_PLATFORM_ID, BuildTargetGroup.PS4},
                 {WINDOWS_STORE_PLATFORM_ID, BuildTargetGroup.WSA},
                 {WEB_GL_PLATFORM_ID, BuildTargetGroup.WebGL},
+#if UNITY_PRE_5_3_0
+                {WP8_PLATFORM_ID, BuildTargetGroup.WP8},
+#endif
                 {SAMSUNG_TV_PLATFORM_ID, BuildTargetGroup.SamsungTV},
             };
         }
 
-        public static ReadOnlyCollection<BuildPlatform> AllBuildPlatforms
+        public static ReadOnlyCollection<BuildPlatform> AllAvailableBuildPlatforms
         {
-            get { return _allAvailableBuildPlatforms.AsReadOnly(); }
+            get { return AvailableBuildPlatforms.AsReadOnly(); }
         }
 
         private static Texture2D LoadPlatformIcon(string iconId)
@@ -122,7 +138,7 @@ namespace BetterDefines.Editor
                 throw new ArgumentException("Invalid platform id");
             }
 
-            return _buildTargetGroups[platformId];
+            return BuildTargetGroups[platformId];
         }
     }
 }

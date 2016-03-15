@@ -12,7 +12,7 @@ namespace BetterDefines.Editor.Entity
         public CustomDefine(string id)
         {
             StatesForPlatforms = new List<PlatformEnabledState>();
-            foreach (var platform in PlatformUtils.AllBuildPlatforms)
+            foreach (var platform in PlatformUtils.AllAvailableBuildPlatforms)
             {
                 StatesForPlatforms.Add(new PlatformEnabledState(platform.Id, false));
             }

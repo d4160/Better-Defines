@@ -22,6 +22,7 @@ namespace BetterDefines.Editor
             PlatformUtils.PS4_PLATFORM_ID,
             PlatformUtils.GLESEMU_PLATFORM_ID,
             PlatformUtils.WINDOWS_STORE_PLATFORM_ID,
+            PlatformUtils.WP8_PLATFORM_ID,
             PlatformUtils.WEB_GL_PLATFORM_ID,
             PlatformUtils.SAMSUNG_TV_PLATFORM_ID,
             PlatformUtils.NINTENDO_3DS_PLATFORM_ID,

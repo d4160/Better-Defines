@@ -122,7 +122,7 @@ namespace BetterDefines.Editor
         {
             EditorGUILayout.HelpBox("Please disable platforms that you are not using in your project. " +
                                     "For disabled platforms toggles will not be displayed in defines tab", MessageType.Info);
-            foreach (var platform in PlatformUtils.AllBuildPlatforms)
+            foreach (var platform in PlatformUtils.AllAvailableBuildPlatforms)
             {
                 var setting = BetterDefinesSettings.Instance.GetGlobalPlatformState(platform.Id);
 
