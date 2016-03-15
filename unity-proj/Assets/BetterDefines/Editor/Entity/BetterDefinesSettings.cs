@@ -66,7 +66,8 @@ namespace BetterDefines.Editor.Entity
                 throw new InvalidOperationException("Incorrect platform platformId: " + platformId);
             }
 
-            return Defines.Single(x => x.Define == define).IsPlatformEnabled(platformId);
+            var defineSymbol = Defines.SingleOrDefault(x => x.Define == define);
+            return defineSymbol != null && defineSymbol.IsPlatformEnabled(platformId);
         }
         #endregion
     }
