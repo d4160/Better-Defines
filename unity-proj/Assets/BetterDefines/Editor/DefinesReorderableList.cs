@@ -112,7 +112,12 @@ namespace BetterDefines.Editor
             foreach (var platformId in settings.GetGlobalUserEnabledPlatformIds())
             {
                 var isEnabled = settings.GetDefineState(define, platformId);
-                BetterDefinesUtils.ToggleDefine(define, isEnabled, PlatformUtils.GetBuildTargetGroupById(platformId));
+                var buildTargetGroup = PlatformUtils.GetBuildTargetGroupById(platformId);
+                if(buildTargetGroup == BuildTargetGroup.Unknown)
+                {
+                    continue;
+                }
+                BetterDefinesUtils.ToggleDefine(define, isEnabled, buildTargetGroup);
             }
         }
         #endregion
