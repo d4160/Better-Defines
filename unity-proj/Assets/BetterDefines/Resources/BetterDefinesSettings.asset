@@ -48,6 +48,8 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: WP8
       IsEnabled: 1
+    - PlatformId: tvOS
+      IsEnabled: 0
   - Define: CUSTOM_DEFINE
     StatesForPlatforms:
     - PlatformId: Standalone
@@ -83,6 +85,8 @@ MonoBehaviour:
     - PlatformId: SamsungTV
       IsEnabled: 0
     - PlatformId: WP8
+      IsEnabled: 0
+    - PlatformId: tvOS
       IsEnabled: 0
   - Define: HHH
     StatesForPlatforms:
@@ -120,6 +124,8 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: WP8
       IsEnabled: 1
+    - PlatformId: tvOS
+      IsEnabled: 0
   - Define: ssaaazzz
     StatesForPlatforms:
     - PlatformId: Standalone
@@ -156,6 +162,8 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: WP8
       IsEnabled: 1
+    - PlatformId: tvOS
+      IsEnabled: 0
   - Define: NEW_DEFINE_SCRIPTING_SYMBOLsss
     StatesForPlatforms:
     - PlatformId: Standalone
@@ -191,6 +199,8 @@ MonoBehaviour:
     - PlatformId: SamsungTV
       IsEnabled: 1
     - PlatformId: WP8
+      IsEnabled: 0
+    - PlatformId: tvOS
       IsEnabled: 0
   - Define: gggg
     StatesForPlatforms:
@@ -228,6 +238,8 @@ MonoBehaviour:
       IsEnabled: 0
     - PlatformId: WP8
       IsEnabled: 0
+    - PlatformId: tvOS
+      IsEnabled: 0
   - Define: sss
     StatesForPlatforms:
     - PlatformId: Standalone
@@ -263,6 +275,8 @@ MonoBehaviour:
     - PlatformId: SamsungTV
       IsEnabled: 1
     - PlatformId: WP8
+      IsEnabled: 0
+    - PlatformId: tvOS
       IsEnabled: 0
   - Define: NEW_DEFINE_SCRIPTING_SYMBOLeee
     StatesForPlatforms:
@@ -300,6 +314,8 @@ MonoBehaviour:
       IsEnabled: 1
     - PlatformId: WP8
       IsEnabled: 1
+    - PlatformId: tvOS
+      IsEnabled: 0
   - Define: NEW_DEFINE_SCRIPTING_SYMBOL
     StatesForPlatforms:
     - PlatformId: Standalone
@@ -335,6 +351,8 @@ MonoBehaviour:
     - PlatformId: SamsungTV
       IsEnabled: 1
     - PlatformId: WP8
+      IsEnabled: 0
+    - PlatformId: tvOS
       IsEnabled: 0
   - Define: bbbb
     StatesForPlatforms:
@@ -372,6 +390,8 @@ MonoBehaviour:
       IsEnabled: 1
     - PlatformId: WP8
       IsEnabled: 0
+    - PlatformId: tvOS
+      IsEnabled: 0
   EnabledPlatformsGlobal:
   - PlatformId: Standalone
     IsEnabled: 1
@@ -382,13 +402,13 @@ MonoBehaviour:
   - PlatformId: Android
     IsEnabled: 1
   - PlatformId: BlackBerry
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: Tizen
     IsEnabled: 1
   - PlatformId: XBox360
     IsEnabled: 1
   - PlatformId: XboxOne
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: PS3
     IsEnabled: 1
   - PlatformId: PSP2
@@ -408,6 +428,6 @@ MonoBehaviour:
   - PlatformId: N3DS
     IsEnabled: 1
   - PlatformId: tvOS
-    IsEnabled: 0
+    IsEnabled: 1
   - PlatformId: WP8
     IsEnabled: 1
