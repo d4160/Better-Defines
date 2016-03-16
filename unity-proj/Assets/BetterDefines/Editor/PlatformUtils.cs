@@ -59,12 +59,12 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadPlatformIcon(STANDALONE_PLATFORM_ID)),
                 new BuildPlatform("Android", ANDROID_PLATFORM_ID, true, LoadPlatformIcon(ANDROID_PLATFORM_ID)),
                 new BuildPlatform("iOS", IOS_PLATFORM_ID, true, LoadPlatformIcon(IOS_PLATFORM_ID)),
-
-                #if !UNITY_PRE_5_3_2
+#if !UNITY_PRE_5_3_2
                 new BuildPlatform("tvOS", TV_OS_PLATFORM_ID, true, LoadPlatformIcon(TV_OS_PLATFORM_ID)),
-                #endif
-
+#endif
+#if UNITY_5_3_OR_NEWER
                 new BuildPlatform("BlackBerry", BLACKBERRY_PLATFORM_ID, true, LoadPlatformIcon(BLACKBERRY_PLATFORM_ID)),
+#endif
                 new BuildPlatform("Tizen", TIZEN_PLATFORM_ID, true, LoadPlatformIcon(TIZEN_PLATFORM_ID)),
                 new BuildPlatform("Xbox 360", XBOX360_PLATFORM_ID, true, LoadPlatformIcon(XBOX360_PLATFORM_ID)),
                 new BuildPlatform("Xbox One", XBOX_ONE_PLATFORM_ID, true, LoadPlatformIcon(XBOX_ONE_PLATFORM_ID)),
@@ -73,18 +73,18 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PS4", PS4_PLATFORM_ID, true, LoadPlatformIcon(PS4_PLATFORM_ID)),
                 // TODO GLES Emulator - what is this?
                 //new BuildPlatform("GLES Emulator", GLESEMU_PLATFORM_ID, true, LoadPlatformIcon(GLESEMU_PLATFORM_ID)),
-                #if !UNITY_PRE_5_3_2
+#if !UNITY_PRE_5_3_2
                 new BuildPlatform("Wii U", WIIU_PLATFORM_ID, true, LoadPlatformIcon(WIIU_PLATFORM_ID)),
                 new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadPlatformIcon(NINTENDO_3DS_PLATFORM_ID)),
-                #endif
+#endif
 
                 new BuildPlatform("Windows Store", WINDOWS_STORE_PLATFORM_ID, true, LoadPlatformIcon(WINDOWS_STORE_PLATFORM_ID)),
-                #if UNITY_PRE_5_3_0
+#if UNITY_PRE_5_3_0
                 new BuildPlatform("Windows Phone 8", WP8_PLATFORM_ID, true, LoadPlatformIcon(WP8_PLATFORM_ID)),
-                #endif
-                #if UNITY_5 // WebGL appeared in Unity 5
+#endif
+#if UNITY_5 // WebGL appeared in Unity 5
                 new BuildPlatform("WebGL", WEB_GL_PLATFORM_ID, true, LoadPlatformIcon(WEB_GL_PLATFORM_ID)),
-                #endif                
+#endif
                 new BuildPlatform("Samsung TV", SAMSUNG_TV_PLATFORM_ID, true, LoadPlatformIcon(SAMSUNG_TV_PLATFORM_ID)),
             };
         }
@@ -93,37 +93,37 @@ namespace BetterDefines.Editor
         {
             return new Dictionary<string, BuildTargetGroup>
             {
-                { WEB_PLAYER_PLATFORM_ID, BuildTargetGroup.WebPlayer },
-                { STANDALONE_PLATFORM_ID, BuildTargetGroup.Standalone },
-                { ANDROID_PLATFORM_ID, BuildTargetGroup.Android },
-                #if !UNITY_PRE_5_3_2
+                {WEB_PLAYER_PLATFORM_ID, BuildTargetGroup.WebPlayer},
+                {STANDALONE_PLATFORM_ID, BuildTargetGroup.Standalone},
+                {ANDROID_PLATFORM_ID, BuildTargetGroup.Android},
+#if !UNITY_PRE_5_3_2
                 {TV_OS_PLATFORM_ID, BuildTargetGroup.tvOS},
                 {NINTENDO_3DS_PLATFORM_ID, BuildTargetGroup.Nintendo3DS},
                 {WIIU_PLATFORM_ID, BuildTargetGroup.WiiU},
-                #endif
+#endif
 
-                #if UNITY_4
+#if UNITY_4
                 { IOS_PLATFORM_ID, BuildTargetGroup.iPhone },
-                #else
-                { IOS_PLATFORM_ID, BuildTargetGroup.iOS },
-                #endif
+#else
+                {IOS_PLATFORM_ID, BuildTargetGroup.iOS},
+#endif
 
-                { BLACKBERRY_PLATFORM_ID, BuildTargetGroup.BlackBerry },
-                { TIZEN_PLATFORM_ID, BuildTargetGroup.Tizen },
-                { XBOX360_PLATFORM_ID, BuildTargetGroup.XBOX360 },
-                { XBOX_ONE_PLATFORM_ID, BuildTargetGroup.XboxOne },
-                { PS3_PLATFORM_ID, BuildTargetGroup.PS3 },
-                { PS_VITA_PLATFORM_ID, BuildTargetGroup.PSP2 },
-                { PS4_PLATFORM_ID, BuildTargetGroup.PS4 },
-                #if UNITY_5
-                { WINDOWS_STORE_PLATFORM_ID, BuildTargetGroup.WSA },
-                { WEB_GL_PLATFORM_ID, BuildTargetGroup.WebGL },
-                #endif
+                {BLACKBERRY_PLATFORM_ID, BuildTargetGroup.BlackBerry},
+                {TIZEN_PLATFORM_ID, BuildTargetGroup.Tizen},
+                {XBOX360_PLATFORM_ID, BuildTargetGroup.XBOX360},
+                {XBOX_ONE_PLATFORM_ID, BuildTargetGroup.XboxOne},
+                {PS3_PLATFORM_ID, BuildTargetGroup.PS3},
+                {PS_VITA_PLATFORM_ID, BuildTargetGroup.PSP2},
+                {PS4_PLATFORM_ID, BuildTargetGroup.PS4},
+#if UNITY_5
+                {WINDOWS_STORE_PLATFORM_ID, BuildTargetGroup.WSA},
+                {WEB_GL_PLATFORM_ID, BuildTargetGroup.WebGL},
+#endif
 
-                #if UNITY_PRE_5_3_0
+#if UNITY_PRE_5_3_0
                 { WP8_PLATFORM_ID, BuildTargetGroup.WP8 },
-                #endif
-                { SAMSUNG_TV_PLATFORM_ID, BuildTargetGroup.SamsungTV },
+#endif
+                {SAMSUNG_TV_PLATFORM_ID, BuildTargetGroup.SamsungTV},
             };
         }
 
