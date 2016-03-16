@@ -128,8 +128,9 @@ namespace BetterDefines.Editor
 
                 if (setting.PlatformId == PlatformUtils.STANDALONE_PLATFORM_ID) { GUI.enabled = false; }
                 setting.IsEnabled = GUILayout.Toggle(setting.IsEnabled, new GUIContent(" " + platform.Name, platform.Icon));
-                if (setting.PlatformId == PlatformUtils.STANDALONE_PLATFORM_ID) { GUI.enabled = true; }
+                GUI.enabled = true;
             }
+            EditorUtility.SetDirty(BetterDefinesSettings.Instance);
         }
     }
 }

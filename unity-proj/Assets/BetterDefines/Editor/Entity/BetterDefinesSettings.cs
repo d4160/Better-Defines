@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace BetterDefines.Editor.Entity
@@ -62,6 +63,7 @@ namespace BetterDefines.Editor.Entity
             }
 
             customDefine.EnableForPlatform(platformId, state);
+            EditorUtility.SetDirty(this);
         }
 
         public bool GetDefineState(string define, string platformId)
