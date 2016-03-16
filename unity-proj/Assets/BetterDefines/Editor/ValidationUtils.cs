@@ -20,7 +20,6 @@ namespace BetterDefines.Editor
             PlatformUtils.PS3_PLATFORM_ID,
             PlatformUtils.PS_VITA_PLATFORM_ID,
             PlatformUtils.PS4_PLATFORM_ID,
-            PlatformUtils.GLESEMU_PLATFORM_ID,
             PlatformUtils.WINDOWS_STORE_PLATFORM_ID,
             PlatformUtils.WP8_PLATFORM_ID,
             PlatformUtils.WEB_GL_PLATFORM_ID,

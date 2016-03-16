@@ -37,7 +37,6 @@ namespace BetterDefines.Editor
         public const string PS3_PLATFORM_ID = "PS3";
         public const string PS_VITA_PLATFORM_ID = "PSP2";
         public const string PS4_PLATFORM_ID = "PS4";
-        public const string GLESEMU_PLATFORM_ID = "StandaloneGLESEmu";
         public const string WINDOWS_STORE_PLATFORM_ID = "Metro";
         public const string WP8_PLATFORM_ID = "WP8";
         public const string WEB_GL_PLATFORM_ID = "WebGL";
@@ -76,8 +75,6 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PS3", PS3_PLATFORM_ID, true, LoadPlatformIcon(PS3_PLATFORM_ID)),
                 new BuildPlatform("PS Vita", PS_VITA_PLATFORM_ID, true, LoadPlatformIcon(PS_VITA_PLATFORM_ID)),
                 new BuildPlatform("PS4", PS4_PLATFORM_ID, true, LoadPlatformIcon(PS4_PLATFORM_ID)),
-                // TODO GLES Emulator - what is this?
-                //new BuildPlatform("GLES Emulator", GLESEMU_PLATFORM_ID, true, LoadPlatformIcon(GLESEMU_PLATFORM_ID)),
 #if UNITY_5_3_0_AND_LATER
                 new BuildPlatform("Wii U", WIIU_PLATFORM_ID, true, LoadPlatformIcon(WIIU_PLATFORM_ID)),
                 new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadPlatformIcon(NINTENDO_3DS_PLATFORM_ID)),
