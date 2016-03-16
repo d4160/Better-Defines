@@ -55,7 +55,12 @@ namespace BetterDefines.Editor.Entity
                 throw new InvalidOperationException("Incorrect platform platformId: " + platformId);
             }
 
-            var customDefine = Defines.Single(x => x.Define == define);
+            var customDefine = Defines.SingleOrDefault(x => x.Define == define);
+            if(customDefine == null)
+            {
+                Defines.Add(new CustomDefine(define));
+            }
+
             customDefine.EnableForPlatform(platformId, state);
         }
 

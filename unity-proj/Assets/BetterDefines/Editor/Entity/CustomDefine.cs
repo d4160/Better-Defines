@@ -9,6 +9,7 @@ namespace BetterDefines.Editor.Entity
     {
         public string Define;
         public List<PlatformEnabledState> StatesForPlatforms;
+
         public CustomDefine(string id)
         {
             StatesForPlatforms = new List<PlatformEnabledState>();
