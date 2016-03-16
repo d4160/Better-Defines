@@ -10,6 +10,10 @@
 #define UNITY_PRE_5_3_0
 #endif
 
+#if !UNITY_PRE_5_3_0
+#define UNITY_5_3_0_AND_LATER
+#endif
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -59,10 +63,11 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PC, Mac & Linux Standalone", STANDALONE_PLATFORM_ID, true, LoadPlatformIcon(STANDALONE_PLATFORM_ID)),
                 new BuildPlatform("Android", ANDROID_PLATFORM_ID, true, LoadPlatformIcon(ANDROID_PLATFORM_ID)),
                 new BuildPlatform("iOS", IOS_PLATFORM_ID, true, LoadPlatformIcon(IOS_PLATFORM_ID)),
-#if !UNITY_PRE_5_3_2
+#if UNITY_5_3_0_AND_LATER
                 new BuildPlatform("tvOS", TV_OS_PLATFORM_ID, true, LoadPlatformIcon(TV_OS_PLATFORM_ID)),
 #endif
-#if UNITY_5_3_OR_NEWER
+
+#if !UNITY_5_3_OR_NEWER // Unity directive added in https://unity3d.com/unity/whats-new/unity-5.3.4
                 new BuildPlatform("BlackBerry", BLACKBERRY_PLATFORM_ID, true, LoadPlatformIcon(BLACKBERRY_PLATFORM_ID)),
 #endif
                 new BuildPlatform("Tizen", TIZEN_PLATFORM_ID, true, LoadPlatformIcon(TIZEN_PLATFORM_ID)),
@@ -73,7 +78,7 @@ namespace BetterDefines.Editor
                 new BuildPlatform("PS4", PS4_PLATFORM_ID, true, LoadPlatformIcon(PS4_PLATFORM_ID)),
                 // TODO GLES Emulator - what is this?
                 //new BuildPlatform("GLES Emulator", GLESEMU_PLATFORM_ID, true, LoadPlatformIcon(GLESEMU_PLATFORM_ID)),
-#if !UNITY_PRE_5_3_2
+#if UNITY_5_3_0_AND_LATER
                 new BuildPlatform("Wii U", WIIU_PLATFORM_ID, true, LoadPlatformIcon(WIIU_PLATFORM_ID)),
                 new BuildPlatform("Nintendo 3DS", NINTENDO_3DS_PLATFORM_ID, true, LoadPlatformIcon(NINTENDO_3DS_PLATFORM_ID)),
 #endif
