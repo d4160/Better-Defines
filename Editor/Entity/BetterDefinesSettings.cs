@@ -59,7 +59,8 @@ namespace BetterDefines.Editor.Entity
             var customDefine = Defines.SingleOrDefault(x => x.Define == define);
             if(customDefine == null)
             {
-                Defines.Add(new CustomDefine(define));
+                customDefine = new CustomDefine(define);
+                Defines.Add(customDefine);
             }
 
             customDefine.EnableForPlatform(platformId, state);

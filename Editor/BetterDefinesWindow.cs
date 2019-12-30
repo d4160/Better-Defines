@@ -1,4 +1,5 @@
 ﻿using BetterDefines.Editor.Entity;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -18,11 +19,8 @@ namespace BetterDefines.Editor
         private static void Init()
         {
             var window = (BetterDefinesWindow) GetWindow(typeof (BetterDefinesWindow));
-#if UNITY_5_3
+
             window.titleContent = new GUIContent("Defines");
-#else
-            window.title = "Defines";
-#endif
 
             window.Show();
         }
@@ -40,7 +38,7 @@ namespace BetterDefines.Editor
 
         private void OnGUI()
         {
-            EditorGUI.BeginChangeCheck();
+            //EditorGUI.BeginChangeCheck();
             settingsSerializedObject.Update();
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
             DrawTopSettingsTabs();
@@ -55,10 +53,10 @@ namespace BetterDefines.Editor
             }
             EditorGUILayout.EndScrollView();
             settingsSerializedObject.ApplyModifiedProperties();
-            if (EditorGUI.EndChangeCheck())
+            /*if (EditorGUI.EndChangeCheck())
             {
                 AssetDatabase.SaveAssets();
-            }
+            }*/
         }
 
         private void DrawAddDefine()
@@ -79,10 +77,51 @@ namespace BetterDefines.Editor
             }
             GUI.enabled = true;
 
+            if (GUILayout.Button(new GUIContent("Update", "Add and updates the defines in the selected BuildTargetGroup (PlayerSettings)")))
+            { 
+                UpdateDefines();
+            }
+
+            if (GUILayout.Button(new GUIContent("Select", "Select the BetterDefinesSettings asset")))
+            {
+                Selection.SetActiveObjectWithContext(BetterDefinesSettings.Instance, null);
+            }
+
+            if (GUILayout.Button(new GUIContent("Open", "Open the PlayerSettings window")))
+            {
+                EditorApplication.ExecuteMenuItem("Edit/Project Settings...");
+            }
+
             EditorGUILayout.EndHorizontal();
             if (!isEmpty && !isNameValid) { EditorGUILayout.HelpBox("Invalid symbol name", MessageType.Error); }
             if (!isEmpty && isAlreadyAdded) { EditorGUILayout.HelpBox("Symbol already added", MessageType.Error); }
             EditorGUILayout.EndVertical();
+        }
+
+        private void UpdateDefines()
+        {
+            var defines = BetterDefinesUtils.GetSelectedTargetGroupDefines();
+            for (int i = 0; i < defines.Length; i++)
+            {
+                var define = defines[i];
+                var isAlreadyAdded = BetterDefinesSettings.Instance.IsDefinePresent(define);
+                var selectedPlatformId = PlatformUtils.GetIdByBuildTargetGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+                var definesSettings = BetterDefinesSettings.Instance;
+
+                if (isAlreadyAdded)
+                {
+                    if (!definesSettings.GetDefineState(define, selectedPlatformId))
+                    {
+                        definesSettings.SetDefineState(define, selectedPlatformId, true);
+                    }
+                }
+                else
+                {
+                    AddElement(define);
+
+                    UpdateDefines();
+                }
+            }  
         }
 
         private void AddElement(string validDefine)
@@ -97,7 +136,7 @@ namespace BetterDefines.Editor
             var defineSettings = customDefine.FindPropertyRelative("StatesForPlatforms");
             for (var i = 0; i < defineSettings.arraySize; i++)
             {
-                defineSettings.GetArrayElementAtIndex(i).FindPropertyRelative("IsEnabled").boolValue = true;
+                defineSettings.GetArrayElementAtIndex(i).FindPropertyRelative("IsEnabled").boolValue = false;
             }
 
             settingsSerializedObject.ApplyModifiedProperties();
@@ -127,7 +166,7 @@ namespace BetterDefines.Editor
                 var setting = BetterDefinesSettings.Instance.GetGlobalPlatformState(platform.Id);
 
                 if (setting.PlatformId == PlatformUtils.STANDALONE_PLATFORM_ID) { GUI.enabled = false; }
-                setting.IsEnabled = GUILayout.Toggle(setting.IsEnabled, new GUIContent(" " + platform.Name, platform.Icon));
+                setting.IsEnabled = GUILayout.Toggle(setting.IsEnabled, new GUIContent($" {platform.Name}", platform.Icon));
                 GUI.enabled = true;
             }
             EditorUtility.SetDirty(BetterDefinesSettings.Instance);

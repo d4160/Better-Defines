@@ -100,6 +100,18 @@ namespace BetterDefines.Editor
             allPlatforms.Remove(BuildTargetGroup.Unknown);
             return allPlatforms.ToArray();
         }
+
+        public static string[] GetDefines(BuildTargetGroup targetGroup)
+        {
+            var scriptDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(targetGroup);
+
+            return scriptDefines.Split(';');
+        }
+
+        public static string[] GetSelectedTargetGroupDefines()
+        {
+            return GetDefines(EditorUserBuildSettings.selectedBuildTargetGroup);
+        }
         #endregion
     }
 }

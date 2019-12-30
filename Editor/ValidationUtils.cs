@@ -26,7 +26,8 @@ namespace BetterDefines.Editor
             PlatformUtils.SAMSUNG_TV_PLATFORM_ID,
             PlatformUtils.NINTENDO_3DS_PLATFORM_ID,
             PlatformUtils.TV_OS_PLATFORM_ID,
-            PlatformUtils.WIIU_PLATFORM_ID
+            PlatformUtils.WIIU_PLATFORM_ID,
+            PlatformUtils.SWITCH_PLATFORM_ID
         };
 
         public static bool IsValidDefineName(this string defineName)

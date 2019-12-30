@@ -1,0 +1,26 @@
+{
+  "name": "taras-osiris.better-defines",
+  "displayName": "Better Defines",
+  "version": "0.1.4",
+  "unity": "2017.1",
+  "description": "An easy and elegant way to manage your preprocessor directives in Unity.",
+  "keywords": [
+    "editor",
+    "global defines",
+    "inspector"
+  ],
+  "author": {
+    "name": "TarasOsiris"
+  },
+  "samples": [
+    {
+      "displayName": "BetterDefines Settings",
+      "description": "BetterDefines Settings with the initial defines.",
+      "path": "Samples~"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d4160/Better-Defines.git"
+  }
+}
