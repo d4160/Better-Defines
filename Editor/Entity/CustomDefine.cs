@@ -19,6 +19,18 @@ namespace BetterDefines.Editor.Entity
             }
         }
 
+        public void UpdatePlatformList()
+        {
+            if(StatesForPlatforms != null && StatesForPlatforms.Count != 0)
+                return;
+            
+            StatesForPlatforms = new List<PlatformEnabledState>();
+            foreach (var platform in PlatformUtils.AllAvailableBuildPlatforms)
+            {
+                StatesForPlatforms.Add(new PlatformEnabledState(platform.Id, false));
+            }
+        }
+
         public bool IsPlatformEnabled(string platformId)
         {
             if (string.IsNullOrEmpty(platformId))

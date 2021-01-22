@@ -1,7 +1,7 @@
 {
   "name": "com.taras-osiris.better-defines",
   "displayName": "Better Defines",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "unity": "2017.1",
   "description": "An easy and elegant way to manage your preprocessor directives in Unity.",
   "keywords": [
@@ -16,7 +16,7 @@
     {
       "displayName": "BetterDefines Settings",
       "description": "BetterDefines Settings with the initial defines.",
-      "path": "Samples~"
+      "path": "Samples~/Default Examples"
     }
   ],
   "repository": {

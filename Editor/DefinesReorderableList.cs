@@ -106,7 +106,7 @@ namespace BetterDefines.Editor
             }
         }
 
-        private static void ApplySelectedConfig(string define)
+        public static void ApplySelectedConfig(string define)
         {
             var settings = BetterDefinesSettings.Instance;
             foreach (var platformId in settings.GetGlobalUserEnabledPlatformIds())
